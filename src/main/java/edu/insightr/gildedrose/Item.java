@@ -1,8 +1,8 @@
 package edu.insightr.gildedrose;
 
-public class Item {
+public abstract class Item {
 
-    private String name;
+    protected String name;
     private int sellIn;
 
     private int quality;
@@ -12,6 +12,10 @@ public class Item {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
+    }
+
+    public Item() {
+        super();
     }
 
     public String getName() {
