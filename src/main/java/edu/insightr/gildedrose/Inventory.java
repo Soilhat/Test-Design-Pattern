@@ -15,14 +15,14 @@ public class Inventory {
 
     public Inventory() {
         super();
-        /*items = new Item[]{
-                new Item("+5 Dexterity Vest", 10, 20),
-                new Item("Aged Brie", 2, 0),
-                new Item("Elixir of the Mongoose", 5, 7),
-                new Item("Sulfuras, Hand of Ragnaros", 0, 80),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
-                new Item("Conjured Mana Cake", 3, 6)
-        };*/
+        items = new Item[]{
+                new Dexterity_Vest(),
+                new Aged_Brie(),
+                new Elixir_of_the_Mongoose(),
+                new Sulfuras(),
+                new Backstage_Passes(),
+                new Conjured_Mana_Cake()
+        };
     }
 
     public void printInventory() {
@@ -32,6 +32,15 @@ public class Inventory {
         }
         System.out.println("***************");
         System.out.println("\n");
+    }
+
+    public void updateInventory()
+    {
+        DebugVisitor visitor = new DebugVisitor();
+        for(Item item : items)
+        {
+            item.accept(visitor);
+        }
     }
 
     public void updateQuality() {
@@ -93,5 +102,6 @@ public class Inventory {
             inventory.updateQuality();
             inventory.printInventory();
         }
+        inventory.updateInventory();
     }
 }

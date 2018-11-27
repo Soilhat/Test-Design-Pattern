@@ -1,9 +1,11 @@
 package edu.insightr.gildedrose;
 
-public class Aged_Brie extends Item implements IVisitable{
+public class Aged_Brie extends Item{
 
     public Aged_Brie(){
         name = "Aged Brie";
+        sellIn = 2;
+        quality = 0;
     }
 
     @Override

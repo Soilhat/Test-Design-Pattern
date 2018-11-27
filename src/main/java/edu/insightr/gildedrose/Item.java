@@ -1,11 +1,10 @@
 package edu.insightr.gildedrose;
 
-public abstract class Item {
+public abstract class Item implements IVisitable{
 
     protected String name;
-    private int sellIn;
-
-    private int quality;
+    protected int sellIn;
+    protected int quality;
 
     public Item(String name, int sellIn, int quality) {
         super();
