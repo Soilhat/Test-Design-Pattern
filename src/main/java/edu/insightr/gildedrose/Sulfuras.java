@@ -11,6 +11,16 @@ public class Sulfuras extends Item{
     }
 
     @Override
+    protected void newDay() {
+
+    }
+
+    @Override
+    public void updateQuality() {
+
+    }
+
+    @Override
     public void accept(IVisitor visitor) {
         visitor.visit(this);
     }

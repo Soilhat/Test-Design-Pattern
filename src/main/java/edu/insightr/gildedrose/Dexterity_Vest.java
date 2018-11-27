@@ -4,7 +4,7 @@ public class Dexterity_Vest extends Item{
 
     public Dexterity_Vest(){
         name="+5 Dexterity Vest";
-        sellIn = 10;
+        sellIn = 0;
         quality = 20;
     }
 
