@@ -4,17 +4,23 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class InventoryTest {
     private Inventory invent;
     private Item[] list;
+    private int qual;
 
     @Before
     public void SetUp()
     {
         invent = new Inventory();
-        list = invent.getItems();
+        list = new Item[invent.getItems().length];
+        for(int i = 0; i < invent.getItems().length; i++)
+            list[i] = invent.getItems()[i];
+        qual = invent.getItems()[0].getQuality();
     }
 
     @After
@@ -24,12 +30,17 @@ public class InventoryTest {
 
     @Test
     public void sellPassed() throws Exception{
+        boolean flag = false;
+        while(!flag){
         invent.updateQuality();
         Item[] items = invent.getItems();
-        for(int i=0; i< items.length; i++){
-            if(list[i].getSellIn()==0) {
-                assertEquals((list[i].getQuality() -2), items[i].getQuality());
+        /*for(int i=0; i< items.length; i++){*/
+            if(items[0].getClass() != Sulfuras.class && items[0].getSellIn()==0 && items[0].getQuality() > 2) {
+                flag = true;
+                assertEquals(list[0].getQuality()-2, items[0].getQuality());
+                //break;
             }
+        /*}*/
         }
     }
 
