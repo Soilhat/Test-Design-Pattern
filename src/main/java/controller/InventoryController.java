@@ -1,4 +1,4 @@
-package controller;
+/*package controller;
 
 import edu.insightr.gildedrose.Inventory;
 import edu.insightr.gildedrose.Item;
@@ -26,3 +26,4 @@ public class InventoryController implements Initializable {
     ListView<Item> listInv;
 
 }
+*/

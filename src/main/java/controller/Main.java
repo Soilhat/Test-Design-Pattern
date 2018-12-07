@@ -1,4 +1,4 @@
-package controller;
+/*package controller;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -24,4 +24,4 @@ public class Main extends Application {
         //Student stu  = new Student(32, "hjj","hjhg",null,"hkj",7,"hg");
     }
 }
-
+*/

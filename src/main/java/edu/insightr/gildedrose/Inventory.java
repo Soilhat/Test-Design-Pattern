@@ -1,5 +1,13 @@
 package edu.insightr.gildedrose;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Inventory {
 
     private Item[] items;
@@ -43,65 +51,42 @@ public class Inventory {
         }
     }
 
-    public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
-            if (items[i].getName() != "Aged Brie"
-                    && items[i].getName() != "Backstage passes to a TAFKAL80ETC concert") {
-                if (items[i].getQuality() > 0) {
-                    if (items[i].getName() != "Sulfuras, Hand of Ragnaros") {
-                        items[i].setQuality(items[i].getQuality() - 1);
-                    }
-                }
-            } else {
-                if (items[i].getQuality() < 50) {
-                    items[i].setQuality(items[i].getQuality() + 1);
+    public static void  main(String[] args)
+    {
+        JSONParser jsonParser = new JSONParser();
+        try(FileReader reader = new FileReader("gildedRosebis.json"))
+        {
+            Object obj = jsonParser.parse(reader);
+            JSONArray productList = (JSONArray) obj;
+            System.out.println(productList);
+            productList.forEach( emp -> parseProductObject( (JSONObject) emp ) );
+        }
 
-                    if (items[i].getName() == "Backstage passes to a TAFKAL80ETC concert") {
-                        if (items[i].getSellIn() < 11) {
-                            if (items[i].getQuality() < 50) {
-                                items[i].setQuality(items[i].getQuality() + 1);
-                            }
-                        }
-
-                        if (items[i].getSellIn() < 6) {
-                            if (items[i].getQuality() < 50) {
-                                items[i].setQuality(items[i].getQuality() + 1);
-                            }
-                        }
-                    }
-                }
-            }
-
-            if (items[i].getName() != "Sulfuras, Hand of Ragnaros") {
-                items[i].setSellIn(items[i].getSellIn() - 1);
-            }
-
-            if (items[i].getSellIn() < 0) {
-                if (items[i].getName() != "Aged Brie") {
-                    if (items[i].getName() != "Backstage passes to a TAFKAL80ETC concert") {
-                        if (items[i].getQuality() > 0) {
-                            if (items[i].getName() != "Sulfuras, Hand of Ragnaros") {
-                                items[i].setQuality(items[i].getQuality() - 1);
-                            }
-                        }
-                    } else {
-                        items[i].setQuality(items[i].getQuality() - items[i].getQuality());
-                    }
-                } else {
-                    if (items[i].getQuality() < 50) {
-                        items[i].setQuality(items[i].getQuality() + 1);
-                    }
-                }
-            }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (org.json.simple.parser.ParseException e) {
+            e.printStackTrace();
         }
     }
+    private static void parseProductObject(JSONObject product)
+    {
+        JSONObject productObject = (JSONObject) product.get("product");
 
-    public static void main(String[] args) {
-        Inventory inventory = new Inventory();
-        for (int i = 0; i < 10; i++) {
-            inventory.updateQuality();
-            inventory.printInventory();
-        }
-        inventory.updateInventory();
+
+        String name = (String) productObject.get("name");
+        System.out.println(name);
+
+
+        int quality = Integer.parseInt(productObject.get("quality").toString());
+        System.out.println(quality);
+
+        int sellIn = Integer.parseInt(productObject.get("sellIn").toString());
+        System.out.println(sellIn);
     }
 }
+
+
+
+
