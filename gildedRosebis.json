@@ -1,0 +1,16 @@
+[
+    {
+        "product": {
+            "name": "sulfuras",
+            "quality": "56",
+            "sellIn": "10"
+        }
+    },
+    {
+        "product": {
+            "name": "agedBrie",
+            "quality": "26",
+            "sellIn": "3"
+        }
+    }
+]
