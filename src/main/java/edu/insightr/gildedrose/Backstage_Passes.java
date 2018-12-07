@@ -5,7 +5,7 @@ public class Backstage_Passes extends Item{
     public Backstage_Passes(){
 
         name = "Backstage passes to a TAFKAL80ETC concert";
-        sellIn = 15;
+        sellIn = 9;
         quality = 20;
     }
 

@@ -51,6 +51,11 @@ public class Inventory {
         }
     }
 
+    public void updateQuality()
+    {
+        for (Item item : items) item.updateQuality();
+    }
+
     public static void  main(String[] args)
     {
         JSONParser jsonParser = new JSONParser();

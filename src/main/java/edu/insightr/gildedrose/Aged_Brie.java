@@ -8,6 +8,10 @@ public class Aged_Brie extends Item{
         quality = 0;
     }
 
+    public Aged_Brie(String name, int sellIn, int quality){
+        super();
+    }
+
     @Override
     protected void newDay() {
         // "Aged Brie" actually increases in Quality the older it gets

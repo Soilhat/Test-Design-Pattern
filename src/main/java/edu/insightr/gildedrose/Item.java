@@ -12,6 +12,9 @@ public abstract class Item implements IVisitable{
         return quality;
     }
 
+    public void setQuality(int quality){ this.quality = quality;
+    }
+
     protected int sellIn;
     protected int quality;
 
@@ -54,4 +57,6 @@ public abstract class Item implements IVisitable{
                 ", quality=" + quality +
                 '}';
     }
+
+    public void setSellIn(int i){sellIn = i;}
 }
