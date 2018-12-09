@@ -1,4 +1,4 @@
-package controller;
+/*package controller;
 
 import edu.insightr.gildedrose.*;
 import javafx.collections.FXCollections;
@@ -31,3 +31,4 @@ public class InventoryController implements Initializable {
     TableView<Item> table;
 
 }
+*/
