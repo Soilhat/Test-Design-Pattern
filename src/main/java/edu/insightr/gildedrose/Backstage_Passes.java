@@ -9,6 +9,8 @@ public class Backstage_Passes extends Item{
         quality = 20;
     }
 
+    public Backstage_Passes(String name, int sellIn, int quality){ super(name, sellIn, quality);}
+
     @Override
     protected void newDay() {
         // "Backstage passes", like aged brie, increases in Quality as it's SellIn value approaches

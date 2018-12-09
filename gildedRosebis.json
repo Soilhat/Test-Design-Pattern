@@ -1,21 +1,7 @@
-{  
-  "Items" :[
-	{
-        "name":"sulfuras",
-        "selIn":"3",
-        "quality":"11"
-    },
-	{
-        "name":"agedBrie",
-       "selIn":"5",
-       "quality":"18"
-    }
-	]
- 
-}
 [
   {
     "product": {
+      "type": "Sulfuras",
       "name": "sulfuras",
       "quality": "56",
       "sellIn": "10"
@@ -23,6 +9,7 @@
   },
   {
     "product": {
+      "type": "Aged_Brie",
       "name": "agedBrie",
       "quality": "26",
       "sellIn": "3"

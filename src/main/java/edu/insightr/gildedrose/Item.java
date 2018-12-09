@@ -51,10 +51,10 @@ public abstract class Item implements IVisitable{
 
     @Override
     public String toString() {
-        return "Item{" +
-                "name='" + name + '\'' +
-                ", sellIn=" + sellIn +
-                ", quality=" + quality +
+        return this.getClass().getSimpleName() +
+                "{name : '" + name + '\'' +
+                ", sellIn : " + sellIn +
+                ", quality : " + quality +
                 '}';
     }
 

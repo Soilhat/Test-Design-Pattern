@@ -1,6 +1,5 @@
 package controller;
 
-import edu.insightr.gildedrose.Aged_Brie;
 import edu.insightr.gildedrose.Inventory;
 import edu.insightr.gildedrose.Item;
 import javafx.application.Application;
@@ -15,10 +14,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-import javax.swing.text.TabableView;
-
 public class Main extends Application {
-    TableView<Item> table = new TableView<Item>();
+    TableView<Item> table = new TableView<>();
     ObservableList<Item> data = FXCollections.observableArrayList(new Inventory().getItems());
     @Override
     public void start(Stage primaryStage) {
@@ -31,7 +28,6 @@ public class Main extends Application {
             e.printStackTrace();
         }
 
-        //TableView table = new TableView();
         table.setEditable(true);
 
         TableColumn nameCol = new TableColumn("Name");
@@ -51,7 +47,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        //Student stu  = new Student(32, "hjj","hjhg",null,"hkj",7,"hg");
     }
 }
 

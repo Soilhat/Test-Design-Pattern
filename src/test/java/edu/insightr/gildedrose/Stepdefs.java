@@ -3,33 +3,53 @@ package edu.insightr.gildedrose;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-/*public class Stepdefs {
+public class Stepdefs {
     private Inventory inventory;
     private ObservableList<Item> items;
 
     @Given("^I have a new inventory$")
-    public void iHaveANewInventory() throws Throwable {
-        inventory = new Inventory();
-        items = new Item[inventory.getItems().size()];
-        for(int i = 0; i < items.length; i++)
-            items[i] = inventory.getItems()[i];
+    public void iHaveANewInventory(){
+        items = FXCollections.observableArrayList();
+        items =  FXCollections.observableArrayList(
+                new Dexterity_Vest(),
+                new Aged_Brie(),
+                new Elixir_of_the_Mongoose(),
+                new Sulfuras(),
+                new Backstage_Passes(),
+                new Conjured_Mana_Cake())
+        ;
+        inventory = new Inventory(items);
+    }
+
+    @Given("I read a Json File")
+    public void JsonInventory()
+    {
+        inventory = new Inventory("gildedRosebis.json");
+    }
+
+    @Then("my inventory is filled")
+    public void TestInventoryFilled(){
+        for(Item i : inventory.getItems()){
+            System.out.println(i);
+        }
     }
 
     @Then("^the quality of the conjured item is (\\d+)$")
-    public void theQualityOfTheConjuredIs(int conjuredQuality) throws Throwable {
+    public void theQualityOfTheConjuredIs(int conjuredQuality){
         for(int i = 0 ; i < items.size(); i++)
-            if(inventory.getItems()[i].getName().contains("Conjured"))
-                assertThat(items[i].getQuality(), is(conjuredQuality));
+            if(inventory.getItems().get(i).getName().contains("Conjured"))
+                assertThat(items.get(i).getQuality(), is(conjuredQuality));
     }
 
     @Then("^the quality of the sold item is (\\d+)$")
-    public void QualitySellPassedItem(int soldItemQuality) throws Throwable {
+    public void QualitySellPassedItem(int soldItemQuality){
         for(Item item : inventory.getItems())
             if(item.getSellIn() == 0 && !item.getName().contains("Sulfuras"))
                 assertThat(item.getQuality(), is(soldItemQuality));
@@ -87,8 +107,8 @@ import static org.junit.Assert.assertTrue;
         }
     }
     @When("^I update the inventory$")
-    public void iUpdateTheInventory() throws Throwable {
+    public void iUpdateTheInventory(){
         inventory.updateQuality();
         inventory.printInventory();
     }
-}*/
+}

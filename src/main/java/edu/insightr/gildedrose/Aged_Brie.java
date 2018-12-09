@@ -9,7 +9,7 @@ public class Aged_Brie extends Item{
     }
 
     public Aged_Brie(String name, int sellIn, int quality){
-        super();
+        super(name, sellIn, quality);
     }
 
     @Override

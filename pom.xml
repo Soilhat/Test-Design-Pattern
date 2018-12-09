@@ -62,19 +62,6 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
-
-
-
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20180813</version>
-        </dependency>
-        <dependency>
-            <groupId>com.googlecode.json-simple</groupId>
-            <artifactId>json-simple</artifactId>
-            <version>1.1</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -85,8 +72,8 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>2.3.1</version>
                     <configuration>
-                        <source>1.8</source>
-                        <target>1.8</target>
+                        <source>9</source>
+                        <target>9</target>
                     </configuration>
                 </plugin>
             </plugins>
