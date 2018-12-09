@@ -1,4 +1,4 @@
-/*package controller;
+package controller;
 
 import edu.insightr.gildedrose.Aged_Brie;
 import edu.insightr.gildedrose.Inventory;
@@ -54,4 +54,4 @@ public class Main extends Application {
         //Student stu  = new Student(32, "hjj","hjhg",null,"hkj",7,"hg");
     }
 }
-*/
+
