@@ -1,12 +1,14 @@
 package controller;
 
-import edu.insightr.gildedrose.Inventory;
-import edu.insightr.gildedrose.Item;
+import edu.insightr.gildedrose.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,7 +24,10 @@ public class InventoryController implements Initializable {
         listInv.setItems(items);
     }
 
+
     @FXML
     ListView<Item> listInv;
+    @FXML
+    TableView<Item> table;
 
 }
