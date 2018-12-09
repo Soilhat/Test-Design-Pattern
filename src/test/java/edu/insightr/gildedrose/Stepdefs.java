@@ -3,26 +3,27 @@ package edu.insightr.gildedrose;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import javafx.collections.ObservableList;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-public class Stepdefs {
+/*public class Stepdefs {
     private Inventory inventory;
-    private Item[] items;
+    private ObservableList<Item> items;
 
     @Given("^I have a new inventory$")
     public void iHaveANewInventory() throws Throwable {
         inventory = new Inventory();
-        items = new Item[inventory.getItems().length];
+        items = new Item[inventory.getItems().size()];
         for(int i = 0; i < items.length; i++)
             items[i] = inventory.getItems()[i];
     }
 
     @Then("^the quality of the conjured item is (\\d+)$")
     public void theQualityOfTheConjuredIs(int conjuredQuality) throws Throwable {
-        for(int i = 0 ; i < items.length; i++)
+        for(int i = 0 ; i < items.size(); i++)
             if(inventory.getItems()[i].getName().contains("Conjured"))
                 assertThat(items[i].getQuality(), is(conjuredQuality));
     }
@@ -90,4 +91,4 @@ public class Stepdefs {
         inventory.updateQuality();
         inventory.printInventory();
     }
-}
+}*/

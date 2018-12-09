@@ -3,6 +3,7 @@ package edu.insightr.gildedrose;
 import edu.insightr.gildedrose.Inventory;
 import edu.insightr.gildedrose.Item;
 import edu.insightr.gildedrose.Sulfuras;
+import javafx.collections.ObservableList;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,8 +22,8 @@ public class InventoryTest {
     {
         invent = new Inventory();
         int i = 0;
-        qualities = new int[invent.getItems().length];
-        sellIn = new int[invent.getItems().length];
+        qualities = new int[invent.getItems().size()];
+        sellIn = new int[invent.getItems().size()];
         for(Item item : invent.getItems())
         {
             qualities[i] = item.getQuality();
@@ -39,10 +40,10 @@ public class InventoryTest {
     @Test
     public void sellPassed() throws Exception{
         invent.updateQuality();
-        Item[] items = invent.getItems();
-        for(int i = 0; i < items.length; i++){
-            if(items[i].getClass() != Sulfuras.class && sellIn[i] ==0 && qualities[i] > 2) {
-                assertEquals(qualities[i]-2, items[0].getQuality());
+        ObservableList<Item> items = invent.getItems();
+        for(int i = 0; i < items.size(); i++){
+            if(items.get(i).getClass() != Sulfuras.class && sellIn[i] ==0 && qualities[i] > 2) {
+                assertEquals(qualities[i]-2, items.get(0).getQuality());
             }
         }
     }
@@ -50,10 +51,10 @@ public class InventoryTest {
     @Test
     public void positiveQuality(){
         invent.updateQuality();
-        Item[] items = invent.getItems();
-        for(int i=0; i< items.length; i++){
+        ObservableList<Item> items = invent.getItems();
+        for(int i=0; i< items.size(); i++){
             if(qualities[i]==0) {
-                assertTrue(items[i].getQuality()>=0);
+                assertTrue(items.get(i).getQuality()>=0);
             }
         }
     }
@@ -61,10 +62,10 @@ public class InventoryTest {
     @Test
     public void agedBrieTest(){
         invent.updateQuality();
-        Item[] items = invent.getItems();
-        for(int i=0; i< items.length; i++){
-            if(items[i].getName()=="Aged Brie") {
-                assertEquals(qualities[i]+1, items[i].getQuality());
+        ObservableList<Item> items = invent.getItems();
+        for(int i=0; i< items.size(); i++){
+            if(items.get(i).getName()=="Aged Brie") {
+                assertEquals(qualities[i]+1, items.get(i).getQuality());
             }
         }
     }
@@ -72,10 +73,10 @@ public class InventoryTest {
     @Test
     public void Lower50Test(){
         invent.updateQuality();
-        Item[] items = invent.getItems();
-        for(int i=0; i< items.length; i++){
-            if(!items[i].getName().contains("Sulfuras") && qualities[i] >= 50) {
-                assertEquals(50, items[i].getQuality());
+        ObservableList<Item> items = invent.getItems();
+        for(int i=0; i< items.size(); i++){
+            if(!items.get(i).getName().contains("Sulfuras") && qualities[i] >= 50) {
+                assertEquals(50, items.get(i).getQuality());
             }
         }
     }
@@ -83,11 +84,11 @@ public class InventoryTest {
     @Test
     public void sulfurasTest(){
         invent.updateQuality();
-        Item[] items = invent.getItems();
-        for(int i=0; i< items.length; i++){
-            if(items[i].getName().contains("Sulfuras")) {
-                assertEquals(qualities[i], items[i].getQuality());
-                assertEquals(0, items[i].getSellIn());
+        ObservableList<Item> items = invent.getItems();
+        for(int i=0; i< items.size(); i++){
+            if(items.get(i).getName().contains("Sulfuras")) {
+                assertEquals(qualities[i], items.get(i).getQuality());
+                assertEquals(0, items.get(i).getSellIn());
             }
         }
     }
@@ -95,15 +96,15 @@ public class InventoryTest {
     @Test
     public void backstageTest(){
         invent.updateQuality();
-        Item[] items = invent.getItems();
-        for(int i=0; i< items.length; i++){
-            if(items[i].getName().contains("Backstage passes")) {
+        ObservableList<Item> items = invent.getItems();
+        for(int i=0; i< items.size(); i++){
+            if(items.get(i).getName().contains("Backstage passes")) {
                 if(sellIn[i] <=10 && sellIn[i] > 5)
-                    assertEquals(qualities[i]+2, items[i].getQuality());
+                    assertEquals(qualities[i]+2, items.get(i).getQuality());
                 if(sellIn[i] <=5 && sellIn[i] > 0)
-                    assertEquals(qualities[i]+3, items[i].getQuality());
+                    assertEquals(qualities[i]+3, items.get(i).getQuality());
                 if(sellIn[i] ==0)
-                    assertEquals(0, items[i].getQuality());
+                    assertEquals(0, items.get(i).getQuality());
             }
         }
     }
@@ -111,12 +112,12 @@ public class InventoryTest {
     @Test
     public void qualityConjured(){
         invent.updateQuality();
-        Item[] items = invent.getItems();
-        for(int i = 0; i < items.length; i++)
+        ObservableList<Item> items = invent.getItems();
+        for(int i = 0; i < items.size(); i++)
         {
-            if(items[i].getName().contains("Conjured"))
+            if(items.get(i).getName().contains("Conjured"))
             {
-                assertEquals(qualities[i]-2, items[i].getQuality());
+                assertEquals(qualities[i]-2, items.get(i).getQuality());
             }
         }
     }
