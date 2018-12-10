@@ -16,6 +16,7 @@ public class InventoryController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         inv = new Inventory();
+        inv.setItems(inv.ReaderFileJson("gildedRosebis.json"));
         listInv.setItems(FXCollections.observableArrayList(inv.getItems()));
         ObservableList<Item> items = FXCollections.observableArrayList();
         listInv.setItems(items);

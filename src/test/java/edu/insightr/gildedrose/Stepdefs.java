@@ -31,7 +31,8 @@ public class Stepdefs {
     @Given("I read a Json File")
     public void JsonInventory()
     {
-        inventory = new Inventory("gildedRosebis.json");
+        inventory = new Inventory();
+        inventory.setItems(inventory.ReaderFileJson("gildedRosebis.json"));
     }
 
     @Then("my inventory is filled")

@@ -1,6 +1,7 @@
 [
     {
         "product": {
+            "type": "Sulfuras",
             "name": "sulfuras",
             "quality": "56",
             "sellIn": "10"
@@ -8,6 +9,7 @@
     },
     {
         "product": {
+            "type": "Aged_Brie",
             "name": "agedBrie",
             "quality": "26",
             "sellIn": "3"

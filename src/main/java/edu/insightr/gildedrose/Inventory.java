@@ -2,15 +2,12 @@ package edu.insightr.gildedrose;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Iterator;
 import java.util.ResourceBundle;
 
 
@@ -26,13 +23,14 @@ public class Inventory implements Initializable {
 
     }
 
-    @FXML
-    ListView<String> listS;
-
     private ObservableList<Item> items;
 
     public ObservableList<Item> getItems() {
         return items;
+    }
+
+    public void setItems(ObservableList<Item> it){
+        this.items = it;
     }
 
     public Inventory(ObservableList<Item>  items) {
@@ -50,6 +48,10 @@ public class Inventory implements Initializable {
                 new Backstage_Passes(),
                 new Conjured_Mana_Cake())
         ;
+    }
+
+    public Inventory(String fileName){
+        items = ReaderFileJson(fileName);
     }
 
 
@@ -76,50 +78,57 @@ public class Inventory implements Initializable {
             item.updateQuality();
         }
     }
-    public static void ReadFileJson(){
+    public ObservableList<Item> ReaderFileJson(String fileName) {
         JSONParser jsonParser = new JSONParser();
-        try(FileReader reader = new FileReader("gildedRosebis.json"))
-        {
-            //Read JSON file
+        ObservableList<Item> itemStorage = FXCollections.observableArrayList();
+        try {
+            FileReader reader = new FileReader(fileName);
             Object obj = jsonParser.parse(reader);
             JSONArray productList = (JSONArray) obj;
-            System.out.println(productList);
-
-            ////Iterate over employee array
-            productList.forEach( emp -> parseProductObject( (JSONObject) emp ) );
-        }
-
-        catch (FileNotFoundException e) {
+            for (Object product : productList) {
+                if (product instanceof JSONObject) {
+                    Item nouveau = parseProductObject((JSONObject) product);
+                    if (nouveau != null) itemStorage.add(nouveau);
+                }
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (org.json.simple.parser.ParseException e) {
-            e.printStackTrace();
         }
-
+        return itemStorage;
     }
-    private static void parseProductObject(JSONObject product)
+    private Item parseProductObject(JSONObject product)
     {
+        Item item = null;
         JSONObject productObject = (JSONObject) product.get("product");
         String name = (String) productObject.get("name");
-        System.out.println(name);
         int quality = Integer.parseInt(productObject.get("quality").toString());
-        System.out.println(quality);
         int sellIn = Integer.parseInt(productObject.get("sellIn").toString());
-        System.out.println(sellIn);
-    }
-
-
-
-
-    public static void main(String[] args) throws ParseException {
-        Inventory inventory = new Inventory();
-        /*for (int i = 0; i < 10; i++) {
-            inventory.updateQuality();
-            System.out.println(i);
-            inventory.printInventory();
-        }*/
-        ReadFileJson();
-        //inventory.updateInventory();
+        switch((String) productObject.get("type")){
+            case "Aged_Brie":
+                item = new Aged_Brie(name, sellIn, quality);
+                break;
+            case "Backstage_Passes":
+                item = new Backstage_Passes(name, sellIn, quality);
+                break;
+            case "Conjured_Mana_Cake" :
+                item = new Conjured_Mana_Cake(name, sellIn, quality);
+                break;
+            case "Dexterity_Vest" :
+                item = new Dexterity_Vest(name, sellIn,quality);
+                break;
+            case "Elixir_of_the_Mongoose" :
+                item = new Elixir_of_the_Mongoose(name, sellIn, quality);
+                break;
+            case "Sulfuras" :
+                item = new Sulfuras(name, sellIn, quality);
+                break;
+            default:
+                System.out.println("le type de l'item : "+ name + " est introuvable: l'item n'a pa été ajouté");
+        }
+        return item;
     }
 }
