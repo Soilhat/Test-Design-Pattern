@@ -112,5 +112,6 @@ public class Stepdefs {
     public void iUpdateTheInventory(){
         inventory.updateQuality();
         inventory.printInventory();
+
     }
 }
