@@ -76,38 +76,41 @@ public class Inventory implements Initializable {
             item.updateQuality();
         }
     }
-    public static void ReaderFileJson()  throws ParseException {
-        JSONParser parser = new JSONParser();
-        try {
+    public static void ReadFileJson(){
+        JSONParser jsonParser = new JSONParser();
+        try(FileReader reader = new FileReader("gildedRosebis.json"))
+        {
+            //Read JSON file
+            Object obj = jsonParser.parse(reader);
+            JSONArray productList = (JSONArray) obj;
+            System.out.println(productList);
 
-            Object obj = parser.parse(new FileReader("C:\\Users\\nancy\\IdeaProjects\\Test-Design-Pattern\\gildedRosebis.json"));
-            JSONObject jsonObject = (JSONObject) obj;
-            System.out.println(jsonObject);
+            ////Iterate over employee array
+            productList.forEach( emp -> parseProductObject( (JSONObject) emp ) );
+        }
 
-            String name = (String) jsonObject.get("name");
-
-           JSONArray caracteristic = (JSONArray) jsonObject.get("Items");
-
-           System.out.println(name);
-           System.out.println("\ncaracteristic:");
-            Iterator<Object> iterator = caracteristic.iterator();
-            while (iterator.hasNext()) {
-                //System.out.println(iterator.next());
-                Iterator<Object>  item = ((JSONArray)iterator.next()).iterator();
-                while(item.hasNext())
-                {
-                    System.out.println(item.next());
-                }
-            }
-
-        } catch (FileNotFoundException e) {
+        catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (org.json.simple.parser.ParseException e) {
             e.printStackTrace();
         }
+
     }
+    private static void parseProductObject(JSONObject product)
+    {
+        JSONObject productObject = (JSONObject) product.get("product");
+        String name = (String) productObject.get("name");
+        System.out.println(name);
+        int quality = Integer.parseInt(productObject.get("quality").toString());
+        System.out.println(quality);
+        int sellIn = Integer.parseInt(productObject.get("sellIn").toString());
+        System.out.println(sellIn);
+    }
+
+
+
 
     public static void main(String[] args) throws ParseException {
         Inventory inventory = new Inventory();
@@ -116,7 +119,7 @@ public class Inventory implements Initializable {
             System.out.println(i);
             inventory.printInventory();
         }*/
-        ReaderFileJson();
+        ReadFileJson();
         //inventory.updateInventory();
     }
 }
