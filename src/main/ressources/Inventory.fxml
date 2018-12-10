@@ -6,9 +6,8 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.insightr.gildedrose.Inventory">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.insightr.gildedrose.Model.Inventory">
    <children>
-      <ListView id="listInv" layoutX="35.0" layoutY="32.0" prefHeight="328.0" prefWidth="260.0" />
       <Button layoutX="428.0" layoutY="65.0" mnemonicParsing="false" text="Update " />
       <TableView id="table" layoutX="35.0" layoutY="32.0" prefHeight="200.0" prefWidth="260.0">
         <columns>

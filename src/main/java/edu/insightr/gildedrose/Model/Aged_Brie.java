@@ -1,4 +1,4 @@
-package edu.insightr.gildedrose;
+package edu.insightr.gildedrose.Model;
 
 public class Aged_Brie extends Item{
 

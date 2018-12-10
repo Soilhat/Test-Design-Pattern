@@ -1,4 +1,4 @@
-package edu.insightr.gildedrose;
+package edu.insightr.gildedrose.Model;
 
 public class Elixir_of_the_Mongoose extends Item{
 

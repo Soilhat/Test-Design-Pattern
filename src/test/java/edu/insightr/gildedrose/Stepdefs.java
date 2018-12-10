@@ -3,6 +3,7 @@ package edu.insightr.gildedrose;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import edu.insightr.gildedrose.Model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

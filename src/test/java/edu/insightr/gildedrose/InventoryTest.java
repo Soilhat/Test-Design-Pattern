@@ -1,5 +1,8 @@
 package edu.insightr.gildedrose;
 
+import edu.insightr.gildedrose.Model.Inventory;
+import edu.insightr.gildedrose.Model.Item;
+import edu.insightr.gildedrose.Model.Sulfuras;
 import javafx.collections.ObservableList;
 import org.json.simple.parser.ParseException;
 import org.junit.After;

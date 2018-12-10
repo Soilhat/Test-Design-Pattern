@@ -1,12 +1,12 @@
-package controller;
+package edu.insightr.gildedrose.controller;
 
-import edu.insightr.gildedrose.*;
+import edu.insightr.gildedrose.Model.Inventory;
+import edu.insightr.gildedrose.Model.Item;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableView;
 
 import java.net.URL;
 import java.util.ResourceBundle;

@@ -1,7 +1,7 @@
-package controller;
+package edu.insightr.gildedrose.controller;
 
-import edu.insightr.gildedrose.Inventory;
-import edu.insightr.gildedrose.Item;
+import edu.insightr.gildedrose.Model.Inventory;
+import edu.insightr.gildedrose.Model.Item;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,6 +30,8 @@ public class Main extends Application {
 
         table.setEditable(true);
 
+        TableColumn typeCol = new TableColumn("Type");
+        typeCol.setCellValueFactory(new PropertyValueFactory<Item,String>("name"));
         TableColumn nameCol = new TableColumn("Name");
         nameCol.setCellValueFactory(new PropertyValueFactory<Item,String>("name"));
         TableColumn sellInCol = new TableColumn("SellIn");
