@@ -1,14 +1,10 @@
 package edu.insightr.gildedrose;
 
-import edu.insightr.gildedrose.Inventory;
-import edu.insightr.gildedrose.Item;
-import edu.insightr.gildedrose.Sulfuras;
 import javafx.collections.ObservableList;
+import org.json.simple.parser.ParseException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -38,7 +34,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void sellPassed() throws Exception{
+    public void sellPassed(){
         invent.updateQuality();
         ObservableList<Item> items = invent.getItems();
         for(int i = 0; i < items.size(); i++){
@@ -64,7 +60,7 @@ public class InventoryTest {
         invent.updateQuality();
         ObservableList<Item> items = invent.getItems();
         for(int i=0; i< items.size(); i++){
-            if(items.get(i).getName()=="Aged Brie") {
+            if(items.get(i).getName().equals("Aged Brie")) {
                 assertEquals(qualities[i]+1, items.get(i).getQuality());
             }
         }
@@ -119,6 +115,15 @@ public class InventoryTest {
             {
                 assertEquals(qualities[i]-2, items.get(i).getQuality());
             }
+        }
+    }
+
+    @Test
+    public void JsonReaderFile() throws ParseException {
+        ObservableList<Item> items = invent.ReaderFileJson("gildedRosebis.json");
+        for(Item it : items)
+        {
+            System.out.println(it);
         }
     }
 }

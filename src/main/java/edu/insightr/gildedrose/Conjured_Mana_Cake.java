@@ -8,6 +8,8 @@ public class Conjured_Mana_Cake extends Item{
         quality = 6;
     }
 
+    public Conjured_Mana_Cake(String name, int sellIn, int quality){ super(name, sellIn, quality);}
+
     @Override
     protected void newDay() {
         // At the end of each day our system lowers both values for every item

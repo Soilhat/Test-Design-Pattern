@@ -8,6 +8,8 @@ public class Dexterity_Vest extends Item{
         quality = 20;
     }
 
+    public Dexterity_Vest(String name, int sellIn, int quality){ super(name, sellIn, quality);}
+
     @Override
     public void accept(IVisitor visitor) {
         visitor.visit(this);

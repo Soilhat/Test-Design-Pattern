@@ -1,5 +1,10 @@
 Feature: Tests Inventory
 
+  #JSON File Reading into list of Item in the Inventory
+  Scenario: Json File
+    Given I read a Json File
+    Then my inventory is filled
+
   #Once the sell by date has passed, Quality degrades twice as fast
   Scenario: sell passed
     Given I have a new inventory
