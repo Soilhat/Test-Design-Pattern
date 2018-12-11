@@ -1,32 +1,99 @@
-{ 
-  "Product": "Fromage", 
-  "list product": [ 
-      {
-          "name": "sulfuras", 
-          "selIn":"3",
-          "quality":"11"
-      }, 
-      {
-          "name": "agedBrie", 
-          "selIn":"6",
-          "quality":"8"
-      }, 
-      {   "name": "Packstage", 
-          "selIn":"5",
-          "quality":"25"
-      },
-      {   "name": "Conjured Mana cake", 
-          "selIn":"5",
-          "quality":"7"
-      },
-      {   
-          "name": "Elixir of the Mongoose", 
-          "selIn":"0",
-          "quality":"80"
-      }
-      
-      
-      
-      
-   ] 
-} 
+[
+  {
+    "product": {
+      "type":"Sulfuras",
+      "name": "sulfuras",
+      "quality": "56",
+      "sellIn": "10"
+    }
+  },
+  {
+    "product": {
+      "type":"Aged_Brie",
+      "name": "agedBrie",
+      "quality": "26",
+      "sellIn": "3"
+    }
+  },
+  {
+    "product": {
+      "type":"Backstage_Passes",
+      "name": "Backstage Passes",
+      "quality": "34",
+      "sellIn": "10"
+    }
+  },
+  {
+    "product": {
+      "type":"Aged_Brie",
+      "name": "Aged Brie",
+      "quality": "26",
+      "sellIn": "3"
+    }
+  },
+  {
+    "product": {
+      "type":"Dextery_Vest",
+      "name": "Backstage Passes",
+      "quality": "55",
+      "sellIn": "25"
+    }
+  },
+  {
+    "product": {
+      "type":"Conjured_Mana_Cake",
+      "name": "Conjured Mana Cake",
+      "quality": "24",
+      "sellIn": "7"
+    }
+  },
+  {
+    "product": {
+      "type":"Backstage_Passes",
+      "name": "Backstage Passes",
+      "quality": "34",
+      "sellIn": "10"
+    }
+  },
+  {
+    "product": {
+      "type":"Backstage_Passes",
+      "name": "Backstage Passes",
+      "quality": "34",
+      "sellIn": "10"
+    }
+  },
+  {
+    "product": {
+      "type":"Backstage_Passes",
+      "name": "Backstage Passes",
+      "quality": "34",
+      "sellIn": "10"
+    }
+  },
+  {
+    "product": {
+      "type":"Conjured_Mana_Cake",
+      "name": "Conjured Mana Cake",
+      "quality": "24",
+      "sellIn": "7"
+    }
+  },
+  {
+    "product": {
+      "type":"Conjured_Mana_Cake",
+      "name": "Conjured Mana Cake",
+      "quality": "24",
+      "sellIn": "7"
+    }
+  },
+  {
+    "product": {
+      "type":"Sulfuras",
+      "name": "sulfuras",
+      "quality": "56",
+      "sellIn": "10"
+    }
+  }
+
+]

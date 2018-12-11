@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -78,6 +79,46 @@ public class Inventory implements Initializable {
             item.updateQuality();
         }
     }
+
+    public int[] countItem(){
+        int[] count = new int[5];
+        int numAgedBrie = 0;
+        int numSulfuras =0;
+        int numBackStage =0;
+        int numConjured_Mana_Cake =0;
+        int numDexterity_Vest =0;
+
+
+        int size = items.size();
+
+        for (Item i : items){
+            if (i.getClass().getSimpleName().equals("Aged_Brie")) {
+                numAgedBrie++;
+                //System.out.println(i.getType());
+            }
+            if (i.getClass().getSimpleName().equals("Sulfuras")){
+                numSulfuras++;
+            }
+            if (i.getClass().getSimpleName().equals("Backstage_Passes")){
+                numBackStage++;
+            }
+            if (i.getClass().getSimpleName().equals("Conjured_Mana_Cake")){
+                numConjured_Mana_Cake++;
+            }
+            if (i.getClass().getSimpleName().equals("Dexterity_Vest")){
+                numDexterity_Vest++;
+            }
+        }
+        //System.out.println(numAgedBrie);
+        count[0]= numAgedBrie;
+        count[1]= numSulfuras;
+        count[2]= numBackStage;
+        count[3]= numConjured_Mana_Cake;
+        count[4]= numDexterity_Vest;
+        //count.set(numSulfuras,"Sulfuras");
+        return count;
+    }
+
     public ObservableList<Item> ReaderFileJson(String fileName) {
         JSONParser jsonParser = new JSONParser();
         ObservableList<Item> itemStorage = FXCollections.observableArrayList();
@@ -131,5 +172,20 @@ public class Inventory implements Initializable {
                 System.out.println("le type de l'item : "+ name + " est introuvable: l'item n'a pa été ajouté");
         }
         return item;
+    }
+
+    public static void main(String[] args) {
+        Inventory inv = new Inventory("gildedRose.json");
+        /*for (Item i : inv.getItems()){
+            System.out.println(i);
+        }*/
+
+        for (int i : inv.countItem()){
+            System.out.println(i);
+            //if(i != "Aged_Brie"){ pos++; break;}
+
+        }
+
+
     }
 }
