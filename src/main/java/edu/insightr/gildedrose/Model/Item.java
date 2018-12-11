@@ -3,6 +3,9 @@ package edu.insightr.gildedrose.Model;
 public abstract class Item implements IVisitable{
 
     protected String name;
+    protected String type;
+
+    public String getType() {return type;}
 
     public int getSellIn() {
         return sellIn;
@@ -19,7 +22,7 @@ public abstract class Item implements IVisitable{
     protected int quality;
 
     public Item(String name, int sellIn, int quality) {
-        super();
+        type = this.getClass().getSimpleName();
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;

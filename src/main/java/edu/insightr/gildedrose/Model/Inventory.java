@@ -82,7 +82,8 @@ public class Inventory implements Initializable {
         JSONParser jsonParser = new JSONParser();
         ObservableList<Item> itemStorage = FXCollections.observableArrayList();
         try {
-            FileReader reader = new FileReader(fileName);
+            ClassLoader classLoader = getClass().getClassLoader();
+            FileReader reader = new FileReader(classLoader.getResource(fileName).getFile());
             Object obj = jsonParser.parse(reader);
             JSONArray productList = (JSONArray) obj;
             for (Object product : productList) {
