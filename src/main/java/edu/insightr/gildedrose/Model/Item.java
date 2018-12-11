@@ -62,4 +62,12 @@ public abstract class Item implements IVisitable{
     }
 
     public void setSellIn(int i){sellIn = i;}
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean equality = false;
+        if(obj.getClass().equals(this.getClass()))
+            if (((Item) obj).getName().equals(name)) equality = true;
+        return equality;
+    }
 }

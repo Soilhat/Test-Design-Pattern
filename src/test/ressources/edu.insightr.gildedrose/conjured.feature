@@ -3,7 +3,7 @@ Feature: Tests Inventory
   #JSON File Reading into list of Item in the Inventory
   Scenario: Json File
     Given I read a Json File
-    Then my inventory is filled
+    Then my inventory is correctly filled
 
   #Once the sell by date has passed, Quality degrades twice as fast
   Scenario: sell passed

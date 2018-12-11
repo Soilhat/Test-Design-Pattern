@@ -8,8 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class Stepdefs {
     private Inventory inventory;
@@ -33,14 +32,16 @@ public class Stepdefs {
     public void JsonInventory()
     {
         inventory = new Inventory();
-        inventory.setItems(inventory.ReaderFileJson("gildedRosebis.json"));
+        inventory.setItems(inventory.ReaderFileJson("gildedRose.json"));
     }
 
-    @Then("my inventory is filled")
+    @Then("my inventory is correctly filled")
     public void TestInventoryFilled(){
-        for(Item i : inventory.getItems()){
-            System.out.println(i);
+        ObservableList<Item> items = inventory.ReaderFileJson("gildedRose.json");
+        for(int i = 0; i < items.size(); i++){
+            assertEquals(inventory.getItems().get(i), items.get(i));
         }
+        inventory.printInventory();
     }
 
     @Then("^the quality of the conjured item is (\\d+)$")
@@ -111,7 +112,5 @@ public class Stepdefs {
     @When("^I update the inventory$")
     public void iUpdateTheInventory(){
         inventory.updateQuality();
-        inventory.printInventory();
-
     }
 }

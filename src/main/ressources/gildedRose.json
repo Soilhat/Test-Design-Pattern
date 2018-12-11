@@ -33,7 +33,7 @@
   },
   {
     "product": {
-      "type":"Dextery_Vest",
+      "type":"Dexterity_Vest",
       "name": "Backstage Passes",
       "quality": "55",
       "sellIn": "25"
