@@ -46,6 +46,5 @@ public class InventoryController implements Initializable {
     public void loadFileButton() {
         inv = new Inventory("gildedRosebis.json");
         fetchItem();
-
     }
 }

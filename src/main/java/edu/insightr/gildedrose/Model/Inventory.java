@@ -34,19 +34,18 @@ public class Inventory implements Initializable {
     }
 
     public Inventory(ObservableList<Item>  items) {
-        super();
         this.items = items;
     }
 
     public Inventory() {
         super();
         items =  FXCollections.observableArrayList(
-                new Dexterity_Vest(),
+                /*new Dexterity_Vest(),
                 new Aged_Brie(),
                 new Elixir_of_the_Mongoose(),
                 new Sulfuras(),
                 new Backstage_Passes(),
-                new Conjured_Mana_Cake())
+                new Conjured_Mana_Cake()*/)
         ;
     }
 
@@ -128,7 +127,7 @@ public class Inventory implements Initializable {
                 item = new Sulfuras(name, sellIn, quality);
                 break;
             default:
-                System.out.println("le type de l'item : "+ name + " est introuvable: l'item n'a pa été ajouté");
+                System.out.println("Le type de l'item : "+ name + " est introuvable: l'item n'a pa été ajouté!");
         }
         return item;
     }
