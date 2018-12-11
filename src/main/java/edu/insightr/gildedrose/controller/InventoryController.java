@@ -2,6 +2,7 @@ package edu.insightr.gildedrose.controller;
 
 import edu.insightr.gildedrose.Model.Inventory;
 import edu.insightr.gildedrose.Model.Item;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -36,8 +37,15 @@ public class InventoryController implements Initializable {
         table.getColumns().setAll(typeCol, nameCol, sellInCol, qualityCol);
     }
 
+
     public void UpdateButton(){
         inv.updateQuality();
         fetchItem();
+    }
+
+    public void loadFileButton() {
+        inv = new Inventory("gildedRosebis.json");
+        fetchItem();
+
     }
 }

@@ -4,7 +4,8 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.insightr.gildedrose.controller.InventoryController">
-   <Button layoutX="420.0" layoutY="60.0" mnemonicParsing="false" onAction="#UpdateButton" text="Update " />
-   <TableView fx:id="table" layoutX="52.0" layoutY="100.0" prefWidth="400"/>
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.insightr.gildedrose.controller.InventoryController">
+   <Button layoutX="363.0" layoutY="49.0" mnemonicParsing="false" onAction="#UpdateButton" text="Update " />
+   <TableView fx:id="table" layoutX="52.0" layoutY="100.0" prefWidth="400" />
+   <Button layoutX="191.0" layoutY="49.0" mnemonicParsing="false" onAction="#loadFileButton" text="List Items"  />
 </AnchorPane>
