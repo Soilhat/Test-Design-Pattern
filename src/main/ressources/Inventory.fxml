@@ -8,7 +8,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.insightr.gildedrose.controller.InventoryController">
    <Button layoutX="500.0" layoutY="74.0" mnemonicParsing="false" onAction="#UpdateButton" text="Update " />
-   <TableView id="table" fx:id="table" layoutX="2.0" prefHeight="375.0" prefWidth="394.0">
+   <TableView id="table" fx:id="table" prefHeight="375.0" prefWidth="394.0">
     <columns>
         <TableColumn text="First Name">
         </TableColumn>
@@ -18,5 +18,5 @@
         </TableColumn>
     </columns>
    </TableView>
-   <PieChart id="pie" layoutX="423.0" layoutY="115.0" prefHeight="234.0" prefWidth="214.0" />
+   <PieChart id="pie" fx:id="pie" labelLineLength="50.0" layoutX="411.0" layoutY="127.0" legendSide="RIGHT" prefHeight="234.0" prefWidth="214.0" />
 </AnchorPane>

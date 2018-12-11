@@ -22,7 +22,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/Inventory.fxml"));
-            Scene scene = new Scene(root,600,500);
+            Scene scene = new Scene(root,700,500);
 
             /*chart.setTitle("Imported Fruits");
             root = new Group(chart);
