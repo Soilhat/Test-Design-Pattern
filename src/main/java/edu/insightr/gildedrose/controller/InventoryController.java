@@ -41,17 +41,18 @@ public class InventoryController implements Initializable {
         table.setItems(inv.getItems());
         table.getColumns().setAll(typeCol, nameCol, sellInCol, qualityCol);
 
-       PieChart.Data s0 = new PieChart.Data("Aged Brie", inv.countItem()[0]);
-       PieChart.Data s1 =  new PieChart.Data("Sulfuras", inv.countItem()[1]);
-       PieChart.Data s2 = new PieChart.Data("Backstage Passes", inv.countItem()[2]);
-       PieChart.Data s3 = new PieChart.Data("Conjured Mana Cake", inv.countItem()[3]);
-       PieChart.Data s4 =  new PieChart.Data("Dexterity Vest", inv.countItem()[4]);
-
-        pie.getData().add(s0);
+        PieChart.Data s0 = new PieChart.Data("Aged Brie", inv.countItem()[0]);
+        PieChart.Data s1 =  new PieChart.Data("Sulfuras", inv.countItem()[1]);
+        PieChart.Data s2 = new PieChart.Data("Backstage Passes", inv.countItem()[2]);
+        PieChart.Data s3 = new PieChart.Data("Conjured Mana Cake", inv.countItem()[3]);
+        PieChart.Data s4 =  new PieChart.Data("Dexterity Vest", inv.countItem()[4]);
+        pie.setData(FXCollections.observableArrayList(s0, s1, s2, s3, s4));
+        /*pie.getData().add(s0);
         pie.getData().add(s1);
         pie.getData().add(s2);
         pie.getData().add(s3);
-        pie.getData().add(s4);
+        pie.getData().add(s4);*/
+
         pie.setTitle("Inventory");
         /*pie.setClockwise(true);
         //pie.setLabelLineLength(50);
@@ -62,6 +63,10 @@ public class InventoryController implements Initializable {
 
     public void UpdateButton(){
         inv.updateQuality();
+        fetchItem();
+    }
+    public void loadFileButton() {
+        inv = new Inventory("gildedRosebis.json");
         fetchItem();
     }
 
