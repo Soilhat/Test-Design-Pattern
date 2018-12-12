@@ -4,8 +4,17 @@ public abstract class Item implements IVisitable{
 
     protected String name;
     protected String type;
+    protected String creation_date;
 
     public String getType() {return type;}
+
+    public String getCreation_date() {
+        return creation_date;
+    }
+
+    public void setCreation_date(String creation_date) {
+        this.creation_date = creation_date;
+    }
 
     public int getSellIn() {
         return sellIn;
@@ -21,11 +30,12 @@ public abstract class Item implements IVisitable{
     protected int sellIn;
     protected int quality;
 
-    public Item(String name, int sellIn, int quality) {
+    public Item(String name, int sellIn, int quality, String creation_date) {
         type = this.getClass().getSimpleName();
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
+        this.creation_date = creation_date;
     }
 
     public Item() {

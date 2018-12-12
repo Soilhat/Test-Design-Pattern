@@ -8,7 +8,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 
@@ -119,7 +122,6 @@ public class Inventory implements Initializable {
         count[3]= numConjured_Mana_Cake;
         count[4]= numDexterity_Vest;
         count[5] = numElixir;
-        //count.set(numSulfuras,"Sulfuras");
         return count;
     }
 
@@ -153,24 +155,25 @@ public class Inventory implements Initializable {
         String name = (String) productObject.get("name");
         int quality = Integer.parseInt(productObject.get("quality").toString());
         int sellIn = Integer.parseInt(productObject.get("sellIn").toString());
+        String creation_date = productObject.get("creation_date").toString();
         switch((String) productObject.get("type")){
             case "Aged_Brie":
-                item = new Aged_Brie(name, sellIn, quality);
+                item = new Aged_Brie(name, sellIn, quality, creation_date);
                 break;
             case "Backstage_Passes":
-                item = new Backstage_Passes(name, sellIn, quality);
+                item = new Backstage_Passes(name, sellIn, quality, creation_date);
                 break;
             case "Conjured_Mana_Cake" :
-                item = new Conjured_Mana_Cake(name, sellIn, quality);
+                item = new Conjured_Mana_Cake(name, sellIn, quality, creation_date);
                 break;
             case "Dexterity_Vest" :
-                item = new Dexterity_Vest(name, sellIn,quality);
+                item = new Dexterity_Vest(name, sellIn,quality, creation_date);
                 break;
             case "Elixir_of_the_Mongoose" :
-                item = new Elixir_of_the_Mongoose(name, sellIn, quality);
+                item = new Elixir_of_the_Mongoose(name, sellIn, quality, creation_date);
                 break;
             case "Sulfuras" :
-                item = new Sulfuras(name, sellIn, quality);
+                item = new Sulfuras(name, sellIn, quality, creation_date);
                 break;
             default:
                 System.out.println("Le type de l'item : "+ name + " est introuvable: l'item n'a pa été ajouté!");

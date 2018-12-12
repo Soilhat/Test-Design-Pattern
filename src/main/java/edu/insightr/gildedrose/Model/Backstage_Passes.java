@@ -1,5 +1,7 @@
 package edu.insightr.gildedrose.Model;
 
+import java.util.Date;
+
 public class Backstage_Passes extends Item{
 
     public Backstage_Passes(){
@@ -9,7 +11,7 @@ public class Backstage_Passes extends Item{
         quality = 20;
     }
 
-    public Backstage_Passes(String name, int sellIn, int quality){ super(name, sellIn, quality);}
+    public Backstage_Passes(String name, int sellIn, int quality, String creation_date){ super(name, sellIn, quality, creation_date);}
 
     @Override
     protected void newDay() {

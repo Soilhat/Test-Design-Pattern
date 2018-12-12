@@ -1,5 +1,7 @@
 package edu.insightr.gildedrose.Model;
 
+import java.util.Date;
+
 public class Sulfuras extends Item{
 
 
@@ -10,8 +12,8 @@ public class Sulfuras extends Item{
         quality = 80;
     }
 
-    public Sulfuras(String name, int sellIn, int quality){
-        super(name, sellIn, quality);
+    public Sulfuras(String name, int sellIn, int quality, String creation_date){
+        super(name, sellIn, quality, creation_date);
     }
 
     @Override
