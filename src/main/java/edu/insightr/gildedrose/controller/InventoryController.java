@@ -2,12 +2,9 @@ package edu.insightr.gildedrose.controller;
 
 import edu.insightr.gildedrose.Model.Inventory;
 import edu.insightr.gildedrose.Model.Item;
-import javafx.event.ActionEvent;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -20,7 +17,7 @@ public class InventoryController implements Initializable {
 
     public Inventory inv;
     @FXML
-    public TableView<Item> table;
+    TableView<Item> table;
     @FXML
     public PieChart pie;
 
@@ -54,14 +51,7 @@ public class InventoryController implements Initializable {
         pie.setData(FXCollections.observableArrayList(s0, s1, s2, s3, s4));
 
         pie.setTitle("Inventory");
-
-        /*pie.setClockwise(true);
-        pie.setLabelLineLength(50);
-        pie.setLabelsVisible(true);
-        pie.setStartAngle(180);
-        pie.setLegendSide(Side.RIGHT);*/
     }
-
 
     public void UpdateButton(){
         inv.updateQuality();
