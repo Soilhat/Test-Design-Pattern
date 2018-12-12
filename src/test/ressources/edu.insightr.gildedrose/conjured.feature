@@ -1,5 +1,11 @@
 Feature: Tests Inventory
 
+  #PieChart Analyse
+  Scenario: Piechart
+    Given I fetch my items
+    Then The number of items corespond to the Piechart
+
+
   #JSON File Reading into list of Item in the Inventory
   Scenario: Json File
     Given I read a Json File

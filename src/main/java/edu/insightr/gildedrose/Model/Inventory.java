@@ -80,12 +80,13 @@ public class Inventory implements Initializable {
     }
 
     public int[] countItem(){
-        int[] count = new int[5];
+        int[] count = new int[6];
         int numAgedBrie = 0;
         int numSulfuras =0;
         int numBackStage =0;
         int numConjured_Mana_Cake =0;
         int numDexterity_Vest =0;
+        int numElixir = 0;
 
 
         int size = items.size();
@@ -107,6 +108,9 @@ public class Inventory implements Initializable {
             if (i.getClass().getSimpleName().equals("Dexterity_Vest")){
                 numDexterity_Vest++;
             }
+            if(i.getClass().getSimpleName().equals("Elixir_of_the_Mongoose")){
+                numElixir++;
+            }
         }
         //System.out.println(numAgedBrie);
         count[0]= numAgedBrie;
@@ -114,6 +118,7 @@ public class Inventory implements Initializable {
         count[2]= numBackStage;
         count[3]= numConjured_Mana_Cake;
         count[4]= numDexterity_Vest;
+        count[5] = numElixir;
         //count.set(numSulfuras,"Sulfuras");
         return count;
     }
@@ -171,20 +176,5 @@ public class Inventory implements Initializable {
                 System.out.println("Le type de l'item : "+ name + " est introuvable: l'item n'a pa été ajouté!");
         }
         return item;
-    }
-
-    public static void main(String[] args) {
-        Inventory inv = new Inventory("gildedRose.json");
-        /*for (Item i : inv.getItems()){
-            System.out.println(i);
-        }*/
-
-        for (int i : inv.countItem()){
-            System.out.println(i);
-            //if(i != "Aged_Brie"){ pos++; break;}
-
-        }
-
-
     }
 }
