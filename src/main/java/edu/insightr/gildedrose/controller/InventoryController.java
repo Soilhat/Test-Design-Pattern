@@ -15,11 +15,11 @@ import java.util.ResourceBundle;
 
 public class InventoryController implements Initializable {
 
-    public Inventory inv;
+    Inventory inv;
     @FXML
     TableView<Item> table;
     @FXML
-    public PieChart pie;
+    PieChart pie;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
