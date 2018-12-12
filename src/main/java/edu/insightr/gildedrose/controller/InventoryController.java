@@ -5,7 +5,10 @@ import edu.insightr.gildedrose.Model.Item;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -20,6 +23,13 @@ public class InventoryController implements Initializable {
     TableView<Item> table;
     @FXML
     PieChart pie;
+
+    @FXML
+    private CategoryAxis x;
+
+    @FXML
+    private NumberAxis y;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -51,6 +61,12 @@ public class InventoryController implements Initializable {
         pie.setData(FXCollections.observableArrayList(s0, s1, s2, s3, s4));
 
         pie.setTitle("Inventory");
+    }
+
+    public void barchartFunction(){
+        XYChart.Series set1 = new XYChart.Series<>();
+        set1.getData().add(new XYChart.Data()
+
     }
 
     public void UpdateButton(){

@@ -177,4 +177,19 @@ public class Inventory implements Initializable {
         }
         return item;
     }
+
+    public int [] itemCountDate(){
+
+        int number
+        for(int i=0; i<items.size();i++){
+            if(items.get(i).getCreation_date == items.get(i+1).getCreation_date)
+            {
+
+            }
+        }
+
+
+
+    }
 }
+
