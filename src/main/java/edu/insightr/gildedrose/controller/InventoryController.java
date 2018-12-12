@@ -11,6 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class InventoryController implements Initializable {
@@ -36,8 +37,10 @@ public class InventoryController implements Initializable {
         sellInCol.setCellValueFactory(new PropertyValueFactory<Item,String>("sellIn"));
         TableColumn qualityCol = new TableColumn("Quality");
         qualityCol.setCellValueFactory(new PropertyValueFactory<Item,String>("quality"));
+        TableColumn creationCol = new TableColumn("Creation date");
+        creationCol.setCellValueFactory(new PropertyValueFactory<Item, Date>("creation_date"));
         table.setItems(inv.getItems());
-        table.getColumns().setAll(typeCol, nameCol, sellInCol, qualityCol);
+        table.getColumns().setAll(typeCol, nameCol, sellInCol, qualityCol, creationCol);
         piechartFunction();
     }
 
@@ -59,7 +62,7 @@ public class InventoryController implements Initializable {
     }
 
     public void loadFileButton() {
-        inv = new Inventory("gildedRosebis.json");
+        inv = new Inventory("gildedRose.json");
         fetchItem();
     }
 }

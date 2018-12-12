@@ -1,5 +1,7 @@
 package edu.insightr.gildedrose.Model;
 
+import java.util.Date;
+
 public class Conjured_Mana_Cake extends Item{
 
     public Conjured_Mana_Cake(){
@@ -8,7 +10,7 @@ public class Conjured_Mana_Cake extends Item{
         quality = 6;
     }
 
-    public Conjured_Mana_Cake(String name, int sellIn, int quality){ super(name, sellIn, quality);}
+    public Conjured_Mana_Cake(String name, int sellIn, int quality, String creation_date){ super(name, sellIn, quality, creation_date);}
 
     @Override
     protected void newDay() {
