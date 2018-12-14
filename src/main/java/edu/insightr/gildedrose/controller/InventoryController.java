@@ -3,19 +3,16 @@ package edu.insightr.gildedrose.controller;
 import edu.insightr.gildedrose.Model.Inventory;
 import edu.insightr.gildedrose.Model.Item;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.PieChart;
-import javafx.scene.chart.XYChart;
+import javafx.scene.chart.*;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
-import java.util.Date;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class InventoryController implements Initializable {
 
@@ -24,6 +21,9 @@ public class InventoryController implements Initializable {
     TableView<Item> table;
     @FXML
     PieChart pie;
+
+    @FXML
+    BarChart BarchartItems;
 
     @FXML
     private CategoryAxis x;
@@ -52,6 +52,7 @@ public class InventoryController implements Initializable {
         table.setItems(inv.getItems());
         table.getColumns().setAll(typeCol, nameCol, sellInCol, qualityCol, creationCol);
         piechartFunction();
+        barchartFunction();
     }
 
     public void piechartFunction(){
@@ -67,18 +68,27 @@ public class InventoryController implements Initializable {
     }
 
     public void barchartFunction(){
+
         XYChart.Series set1 = new XYChart.Series<>();
-        set1.getData().add(new XYChart.Data()
+        Map<String, Integer> dico = inv.itemCountPerDate();
+        Set<Map.Entry<String, Integer>> setHm = dico.entrySet();
+        Iterator<Map.Entry<String, Integer>> it = setHm.iterator();
+        ObservableList<XYChart.Data> data = FXCollections.observableArrayList();
+        while(it.hasNext()){
+            Map.Entry<String, Integer> e = it.next();
+            data.add(new XYChart.Data(e.getKey(), e.getValue()));
+        }
+        set1.setData(data);
+        if(set1 != null)BarchartItems.setData(FXCollections.observableArrayList(set1));
 
     }
-
     public void UpdateButton(){
         inv.updateQuality();
         fetchItem();
     }
 
     public void loadFileButton() {
-        inv = new Inventory("gildedRose.json");
+        inv = new Inventory("gildedRosebis.json");
         fetchItem();
     }
 }

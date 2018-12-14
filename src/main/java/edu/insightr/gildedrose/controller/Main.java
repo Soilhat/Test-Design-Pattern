@@ -1,5 +1,6 @@
 package edu.insightr.gildedrose.controller;
 
+import edu.insightr.gildedrose.Model.Inventory;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,6 +11,9 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 public class Main extends Application {
 
@@ -35,6 +39,14 @@ public class Main extends Application {
 
     public static void main(String[] args) throws ParseException {
         launch(args);
+        /*Inventory inv = new Inventory("gildedRose.json");
+        Map<String, Integer> dico = inv.itemCountPerDate();
+        Set<Map.Entry<String, Integer>> setHm = dico.entrySet();
+        Iterator<Map.Entry<String, Integer>> it = setHm.iterator();
+        while(it.hasNext()){
+            Map.Entry<String, Integer> e = it.next();
+            System.out.println(e.getKey() + " : " + e.getValue());
+        }*/
     }
 }
 
