@@ -67,6 +67,7 @@ public abstract class Item implements IVisitable{
         return this.getClass().getSimpleName() +
                 "{name : '" + name + '\'' +
                 ", sellIn : " + sellIn +
+                ", creation date : " + creation_date +
                 ", quality : " + quality +
                 '}';
     }

@@ -7,7 +7,15 @@
       "sellIn": "10",
       "creation_date":"1995-12-16"
     }
-  },
+  },{
+  "product": {
+    "type":"Sulfuras",
+    "name": "sulf",
+    "quality": "56",
+    "sellIn": "10",
+    "creation_date":"1995-12-16"
+  }
+},
   {
     "product": {
       "type":"Aged_Brie",

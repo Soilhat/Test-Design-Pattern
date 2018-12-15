@@ -68,7 +68,7 @@ public class InventoryController implements Initializable {
 
     public void barchartFunction(){
         XYChart.Series set1 = new XYChart.Series<>();
-        set1.getData().add(new XYChart.Data()
+        //set1.getData().add(new XYChart.Data()
 
     }
 
