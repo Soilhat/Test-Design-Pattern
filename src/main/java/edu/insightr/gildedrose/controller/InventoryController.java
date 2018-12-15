@@ -53,6 +53,7 @@ public class InventoryController implements Initializable {
         table.getColumns().setAll(typeCol, nameCol, sellInCol, qualityCol, creationCol);
         piechartFunction();
         barchartFunction();
+        deleteButtonCliked();
     }
 
     public void piechartFunction(){
@@ -91,4 +92,15 @@ public class InventoryController implements Initializable {
         inv = new Inventory("gildedRosebis.json");
         fetchItem();
     }
+
+    public void deleteButtonCliked(){
+        ObservableList<Item> itemSelected,allItems;
+        allItems= table.getItems();
+        itemSelected=table.getSelectionModel().getSelectedItems();
+        itemSelected.forEach(allItems::remove);
+    }
+    public void AddItem(){
+
+    }
+
 }

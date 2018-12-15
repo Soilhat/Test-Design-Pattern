@@ -5,7 +5,7 @@
             "name": "sulfuras1",
             "quality": "56",
             "sellIn": "10",
-            "creation_date":"2018-12-12"
+            "creation_date":"2018-11-12"
         }
     },
     {
@@ -14,7 +14,7 @@
             "name": "agedBrie",
             "quality": "26",
             "sellIn": "3",
-          "creation_date":"2018-12-12"
+          "creation_date":"2018-11-12"
         }
     },
     {
@@ -23,7 +23,7 @@
             "name": "Backstage Passes",
             "quality": "34",
             "sellIn": "10",
-          "creation_date":"2018-12-12"
+          "creation_date":"2018-11-12"
         }
     },
     {
@@ -50,7 +50,7 @@
             "name": "Elixir of the Mongoose",
             "quality": "24",
             "sellIn": "7",
-          "creation_date":"2018-12-12"
+          "creation_date":"2018-10-12"
         }
     },
   {
@@ -59,7 +59,7 @@
       "name": "sulfuras2",
       "quality": "44",
       "sellIn": "17",
-      "creation_date":"2018-12-12"
+      "creation_date":"2018-9-12"
     }
   },
   {

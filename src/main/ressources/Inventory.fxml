@@ -13,7 +13,7 @@
     <TableView id="table" fx:id="table" layoutX="14.0" layoutY="76.0" prefHeight="327.0" prefWidth="422.0">
     </TableView>
     <PieChart id="pie" fx:id="pie" labelLineLength="50.0" labelsVisible="false" layoutX="493.0" layoutY="102.0" prefHeight="320.0" prefWidth="280.0" />
-    <Button id="list_items" layoutX="705.0" layoutY="76.0" mnemonicParsing="false" onAction="#loadFileButton" text="List_Items" />
+    <Button id="list_items" layoutX="591.0" layoutY="76.0" mnemonicParsing="false" onAction="#loadFileButton" text="List_Items" />
    <BarChart fx:id="BarchartItems" layoutX="14.0" layoutY="412.0" prefHeight="177.0" prefWidth="223.0" title="Barchart">
      <xAxis>
        <CategoryAxis label="Creation Date " side="BOTTOM" fx:id="x" />
@@ -22,4 +22,5 @@
        <NumberAxis fx:id="y" label="Number Items" side="LEFT" />
      </yAxis>
    </BarChart>
+   <Button fx:id="ButtomRemove" layoutX="692.0" layoutY="76.0" mnemonicParsing="false" onAction="#deleteButtonCliked" text="Remove" />
 </AnchorPane>
