@@ -8,13 +8,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Collectors;
 
 
-import javafx.scene.chart.XYChart;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.JSONObject;
@@ -43,21 +39,20 @@ public class Inventory implements Initializable {
     }
 
     public Inventory() {
-        super();
-        items = FXCollections.observableArrayList(
-                /*new Dexterity_Vest(),
-                new Aged_Brie(),
-                new Elixir_of_the_Mongoose(),
-                new Sulfuras(),
-                new Backstage_Passes(),
-                new Conjured_Mana_Cake()*/)
-        ;
+        items = FXCollections.observableArrayList();
     }
 
     public Inventory(String fileName) {
         items = ReaderFileJson(fileName);
     }
 
+    public void ChargeItems(String fileName){
+        ObservableList<Item> toAdd = ReaderFileJson(fileName);
+        for(Item i : toAdd)
+        {
+            if(!items.contains(i)) items.add(i);
+        }
+    }
 
     public void printInventory() {
         System.out.println("***************");
@@ -129,20 +124,17 @@ public class Inventory implements Initializable {
         ObservableList<Item> itemStorage = FXCollections.observableArrayList();
         try {
             ClassLoader classLoader = getClass().getClassLoader();
-            FileReader reader = new FileReader(classLoader.getResource(fileName).getFile());
+            FileReader reader = new FileReader(Objects.requireNonNull(classLoader.getResource(fileName)).getFile());
             Object obj = jsonParser.parse(reader);
             JSONArray productList = (JSONArray) obj;
             for (Object product : productList) {
                 if (product instanceof JSONObject) {
                     Item nouveau = parseProductObject((JSONObject) product);
-                    if (nouveau != null) itemStorage.add(nouveau);
+                    if (nouveau != null && !itemStorage.contains(nouveau))
+                        itemStorage.add(nouveau);
                 }
             }
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ParseException | IOException e) {
             e.printStackTrace();
         }
         return itemStorage;
@@ -181,7 +173,7 @@ public class Inventory implements Initializable {
     }
 
     public  Map<String, Integer> itemCountPerDate() {
-        Map<String, Integer> result = new HashMap<String, Integer>();
+        Map<String, Integer> result = new HashMap<>();
         for(Item i : items)
         {
             if(result.containsKey(i.getCreation_date()))

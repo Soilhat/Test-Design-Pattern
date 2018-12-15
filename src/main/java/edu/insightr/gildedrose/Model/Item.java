@@ -3,7 +3,7 @@ package edu.insightr.gildedrose.Model;
 public abstract class Item implements IVisitable{
 
     protected String name;
-    protected String type;
+    private String type;
     protected String creation_date;
 
     public String getType() {return type;}
@@ -73,4 +73,13 @@ public abstract class Item implements IVisitable{
     }
 
     public void setSellIn(int i){sellIn = i;}
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean equality = false;
+        if(obj.getClass().equals(this.getClass())){
+            if(((Item) obj).getName().equals(name)) equality = true;
+        }
+        return equality;
+    }
 }
