@@ -8,7 +8,9 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="604.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.insightr.gildedrose.controller.InventoryController">
     <Button layoutX="530.0" layoutY="76.0" mnemonicParsing="false" onAction="#UpdateButton" text="Update " />
@@ -38,4 +40,13 @@
        <MenuItem mnemonicParsing="false" onAction="#loadFileButtonbis" text="gildedRosebis.json" />
      </items>
    </MenuButton>
+   <TextField fx:id="newType" layoutX="36.0" layoutY="340.0" prefHeight="25.0" prefWidth="50.0" />
+   <Text layoutX="3.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" />
+   <Text layoutX="93.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+   <TextField fx:id="newName" layoutX="133.0" layoutY="340.0" prefHeight="25.0" prefWidth="59.0" />
+   <Text layoutX="199.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SellIn" />
+   <TextField fx:id="newSellIn" layoutX="234.0" layoutY="340.0" prefHeight="25.0" prefWidth="25.0" />
+   <Text layoutX="268.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quality" />
+   <TextField fx:id="newQuality" layoutX="313.0" layoutY="339.0" prefHeight="25.0" prefWidth="25.0" />
+   <Button fx:id="add" layoutX="359.0" layoutY="339.0" mnemonicParsing="false" onAction="#addButton" text="Add" />
 </AnchorPane>

@@ -1,15 +1,16 @@
 package edu.insightr.gildedrose.controller;
 
-import edu.insightr.gildedrose.Model.Inventory;
-import edu.insightr.gildedrose.Model.Item;
+import edu.insightr.gildedrose.Model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Side;
 import javafx.scene.chart.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
@@ -26,6 +27,16 @@ public class InventoryController implements Initializable {
     BarChart BarChartItems;
     @FXML
     BarChart barChartSellIn;
+    @FXML
+    TextField newType;
+    @FXML
+    TextField newName;
+    @FXML
+    TextField newSellIn;
+    @FXML
+    TextField newQuality;
+    @FXML
+    Button add;
 
 
     @Override
@@ -119,5 +130,38 @@ public class InventoryController implements Initializable {
         fetchItem();
         piechartFunction();
     }
+    public void addButton(){
+        Item item = null;
+
+        switch(newType.getText()) {
+            case "Aged_Brie":
+                item = new Aged_Brie(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                break;
+            case "Backstage_Passes":
+                item = new Backstage_Passes(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                break;
+            case "Conjured_Mana_Cake":
+                item = new Conjured_Mana_Cake(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                break;
+            case "Dexterity_Vest":
+                item = new Dexterity_Vest(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                break;
+            case "Elixir_of_the_Mongoose":
+                item = new Elixir_of_the_Mongoose(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                break;
+            case "Sulfuras":
+                item = new Sulfuras(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                break;
+
+        }
+            inv.getItems().add(item);
+        newType.clear();
+        newName.clear();
+        newSellIn.clear();
+        newQuality.clear();
+        piechartFunction();
+        barchartSellIn();
+    }
+}
 
 }
