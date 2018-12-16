@@ -1,19 +1,12 @@
 package edu.insightr.gildedrose.controller;
 
-import edu.insightr.gildedrose.Model.Inventory;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 
 public class Main extends Application {
 
@@ -28,13 +21,10 @@ public class Main extends Application {
         } catch(Exception e) {
             e.printStackTrace();
         }
-
-
-
     }
 
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args){
         launch(args);
 
     }

@@ -1,5 +1,10 @@
 Feature: Tests Inventory
 
+  #BarChert SellIn
+  Scenario: BarChart Number of items by SellIn
+    Given I fetch my items
+    Then the number of item with SellIn date 10 is 2
+
   #BarChart per creation Date
   Scenario: BarChart Creation Date
     Given I fetch my items

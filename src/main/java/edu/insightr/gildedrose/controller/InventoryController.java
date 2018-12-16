@@ -49,7 +49,6 @@ public class InventoryController implements Initializable {
         table.setItems(inv.getItems());
         //noinspection unchecked
         table.getColumns().setAll(typeCol, nameCol, sellInCol, qualityCol, creationCol);
-        piechartFunction();
         barchartFunction();
         barchartSellIn();
     }
@@ -108,9 +107,11 @@ public class InventoryController implements Initializable {
     public void loadFileButton(){
         inv.ChargeItems("gildedRose.json");
         fetchItem();
+        piechartFunction();
     }
     public void loadFileButtonbis(){
         inv.ChargeItems("gildedRosebis.json");
         fetchItem();
+        piechartFunction();
     }
 }
