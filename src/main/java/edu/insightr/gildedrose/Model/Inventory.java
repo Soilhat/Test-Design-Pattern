@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -31,12 +30,17 @@ public class Inventory implements Initializable {
         return items;
     }
 
+    public List<Item> getSoldItems() {
+        return soldItems;
+    }
+
     public void setItems(ObservableList<Item> it) {
         this.items = it;
     }
 
     public Inventory(ObservableList<Item> items) {
         this.items = items;
+        soldItems = new ArrayList<>();
     }
 
     public Inventory() {
@@ -88,9 +92,6 @@ public class Inventory implements Initializable {
         int numDexterity_Vest = 0;
         int numElixir = 0;
 
-
-        int size = items.size();
-
         for (Item i : items) {
             if (i.getClass().getSimpleName().equals("Aged_Brie")) {
                 numAgedBrie++;
@@ -112,7 +113,6 @@ public class Inventory implements Initializable {
                 numElixir++;
             }
         }
-        //System.out.println(numAgedBrie);
         count[0] = numAgedBrie;
         count[1] = numSulfuras;
         count[2] = numBackStage;
@@ -192,8 +192,7 @@ public class Inventory implements Initializable {
 
     }
 
-    public void DeleteItem(Item toDelete){
-        System.out.println(toDelete);
+    public void SellItem(Item toDelete){
         soldItems.add(toDelete);
         items.remove(toDelete);
     }

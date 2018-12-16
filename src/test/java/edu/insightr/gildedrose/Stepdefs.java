@@ -1,5 +1,6 @@
 package edu.insightr.gildedrose;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -8,16 +9,34 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class Stepdefs {
     private Inventory inventory;
     private ObservableList<Item> items;
+    private Item item;
 
     @Given("^I fetch my items$")
     public void Fetching(){
         inventory = new Inventory("gildedRosebis.json");
+    }
+
+    @And("^I sell an item$")
+    public void selling(){
+        item = items.get(0);
+        inventory.SellItem(item);
+    }
+
+    @Then("^my item is no longer in my inventory$")
+    public void Deleted(){
+        assertFalse(inventory.getItems().contains(item));
+    }
+
+    @And("^the item is in the sold list$")
+    public void SoldList(){
+        assertTrue(inventory.getSoldItems().contains(item));
     }
 
     @Then("^The number of items correspond to the PieChart$")

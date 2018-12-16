@@ -1,9 +1,16 @@
 Feature: Tests Inventory
 
+  #Sell an item
+  Scenario: Selling of a item
+    Given I have a new inventory
+    And I sell an item
+    Then my item is no longer in my inventory
+    And the item is in the sold list
+
   #BarChart per creation Date
   Scenario: BarChart Creation Date
     Given I fetch my items
-    Then The number of item created the 2018-12-12 is 10
+    Then The number of item created the 2018-12-12 is 5
 
   #PieChart Analyse
   Scenario: PieChart

@@ -23,9 +23,6 @@ public class Main extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("/Inventory.fxml"));
             Scene scene = new Scene(root,862,604);
 
-            /*chart.setTitle("Imported Fruits");
-            root = new Group(chart);
-            Scene scene2 = new Scene(root, 600, 400);*/
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch(Exception e) {
@@ -37,16 +34,8 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args){
         launch(args);
-        /*Inventory inv = new Inventory("gildedRose.json");
-        Map<String, Integer> dico = inv.itemCountPerDate();
-        Set<Map.Entry<String, Integer>> setHm = dico.entrySet();
-        Iterator<Map.Entry<String, Integer>> it = setHm.iterator();
-        while(it.hasNext()){
-            Map.Entry<String, Integer> e = it.next();
-            System.out.println(e.getKey() + " : " + e.getValue());
-        }*/
     }
 }
 

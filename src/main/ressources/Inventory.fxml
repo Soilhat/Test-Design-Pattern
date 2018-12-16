@@ -15,7 +15,7 @@
     <TableView id="table" fx:id="table" layoutX="14.0" layoutY="76.0" prefHeight="335.0" prefWidth="481.0">
     </TableView>
     <PieChart id="pie" fx:id="pie" labelLineLength="50.0" labelsVisible="false" layoutX="530.0" layoutY="102.0" prefHeight="320.0" prefWidth="280.0" />
-   <BarChart fx:id="BarchartItems" layoutX="14.0" layoutY="412.0" prefHeight="198.0" prefWidth="306.0" title="Number of Items by creation date">
+   <BarChart fx:id="BarChartItems" layoutX="14.0" layoutY="412.0" prefHeight="198.0" prefWidth="306.0" title="Number of Items by creation date">
      <xAxis>
        <CategoryAxis label="Creation Date " side="BOTTOM" />
      </xAxis>
@@ -23,11 +23,11 @@
        <NumberAxis label="Number Items" side="LEFT" />
      </yAxis>
    </BarChart>
-   <Button layoutX="692.0" layoutY="76.0" mnemonicParsing="false" onAction="#deleteButtonCliked" text="Remove" />
+   <Button layoutX="632.0" layoutY="76.0" mnemonicParsing="false" onAction="#sellButtonCliked" text="Sell" />
    <MenuButton fx:id="listItem" layoutX="730.0" layoutY="76.0" mnemonicParsing="false" text="Load File">
      <items>
-       <MenuItem mnemonicParsing="false" text="gildedRose.json" onAction="#loadFileButton"/>
-       <MenuItem mnemonicParsing="false" text="gildedRosebis.json" onAction="#loadFileButtonbis"/>
+       <MenuItem mnemonicParsing="false" onAction="#loadFileButton" text="gildedRose.json" />
+       <MenuItem mnemonicParsing="false" onAction="#loadFileButtonbis" text="gildedRosebis.json" />
      </items>
    </MenuButton>
 </AnchorPane>

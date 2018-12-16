@@ -23,7 +23,7 @@ public class InventoryController implements Initializable {
     @FXML
     PieChart pie;
     @FXML
-    BarChart BarchartItems;
+    BarChart BarChartItems;
     @FXML
     MenuButton listItem;
 
@@ -73,7 +73,7 @@ public class InventoryController implements Initializable {
             data.add(new XYChart.Data(e.getKey(), e.getValue()));
         }
         set1.setData(data);
-        BarchartItems.setData(FXCollections.observableArrayList(set1));
+        BarChartItems.setData(FXCollections.observableArrayList(set1));
     }
 
     public void UpdateButton(){
@@ -90,18 +90,10 @@ public class InventoryController implements Initializable {
         fetchItem();
     }
 
-    public void deleteButtonCliked(){
-        /*ObservableList<Item> itemSelected,allItems;
-        allItems= table.getItems();
-
-        itemSelected=table.getSelectionModel().getSelectedItems();
-        itemSelected.forEach(allItems::remove);*/
+    public void sellButtonCliked(){
         Item toSell = table.getSelectionModel().getSelectedItem();
-        if(toSell != null) inv.DeleteItem(toSell);
+        if(toSell != null) inv.SellItem(toSell);
         fetchItem();
-    }
-    public void AddItem(){
-
     }
 
 }
