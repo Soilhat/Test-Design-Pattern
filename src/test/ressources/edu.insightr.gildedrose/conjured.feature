@@ -1,10 +1,14 @@
 Feature: Tests Inventory
 
-  #PieChart Analyse
-  Scenario: Piechart
+  #BarChart per creation Date
+  Scenario: BarChart Creation Date
     Given I fetch my items
-    Then The number of items corespond to the Piechart
+    Then The number of item created the 2018-12-12 is 10
 
+  #PieChart Analyse
+  Scenario: PieChart
+    Given I fetch my items
+    Then The number of items correspond to the PieChart
 
   #JSON File Reading into list of Item in the Inventory
   Scenario: Json File

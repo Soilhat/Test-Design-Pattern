@@ -15,15 +15,18 @@ public class Stepdefs {
     private Inventory inventory;
     private ObservableList<Item> items;
 
-    @Given("I fetch my items")
+    @Given("^I fetch my items$")
     public void Fetching(){
         inventory = new Inventory("gildedRosebis.json");
     }
 
-    @Then("The number of items corespond to the Piechart")
+    @Then("^The number of items correspond to the PieChart$")
     public void CountPiechart(){
         assertThat(inventory.countItem()[0], is(2));
     }
+
+    @Then("^The number of item created the 2018-12-12 is (\\d+)$")
+    public void  CountCreation(int number) { assertThat(inventory.itemCountPerDate().get("2018-12-12"), is(number));}
 
     @Given("^I have a new inventory$")
     public void iHaveANewInventory(){
@@ -48,9 +51,7 @@ public class Stepdefs {
 
     @Then("my inventory is filled")
     public void TestInventoryFilled(){
-        for(Item i : inventory.getItems()){
-            System.out.println(i);
-        }
+        assertThat(inventory.getItems().get(0), is(new Sulfuras("sulfuras1", 10, 56, "2018-12-12")));
     }
 
     @Then("^the quality of the conjured item is (\\d+)$")
