@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Side;
 import javafx.scene.chart.*;
-import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -64,7 +63,6 @@ public class InventoryController implements Initializable {
                         new PieChart.Data("Elixir", inv.countItem()[5]));
         pie.setData(pieChartData);
         pie.setLabelLineLength(1);
-        pie.setLegendSide(Side.RIGHT);
         pie.setTitle("Inventory");
     }
 
@@ -119,6 +117,7 @@ public class InventoryController implements Initializable {
         Item toSell = table.getSelectionModel().getSelectedItem();
         if(toSell != null) inv.SellItem(toSell);
         fetchItem();
+        piechartFunction();
     }
 
 }
