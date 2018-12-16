@@ -23,6 +23,7 @@
        <NumberAxis label="Number Items" side="LEFT" />
      </yAxis>
    </BarChart>
+   <Button layoutX="692.0" layoutY="76.0" mnemonicParsing="false" onAction="#deleteButtonCliked" text="Remove" />
    <MenuButton fx:id="listItem" layoutX="730.0" layoutY="76.0" mnemonicParsing="false" text="Load File">
      <items>
        <MenuItem mnemonicParsing="false" text="gildedRose.json" onAction="#loadFileButton"/>

@@ -89,4 +89,19 @@ public class InventoryController implements Initializable {
         inv.ChargeItems("gildedRosebis.json");
         fetchItem();
     }
+
+    public void deleteButtonCliked(){
+        /*ObservableList<Item> itemSelected,allItems;
+        allItems= table.getItems();
+
+        itemSelected=table.getSelectionModel().getSelectedItems();
+        itemSelected.forEach(allItems::remove);*/
+        Item toSell = table.getSelectionModel().getSelectedItem();
+        if(toSell != null) inv.DeleteItem(toSell);
+        fetchItem();
+    }
+    public void AddItem(){
+
+    }
+
 }
