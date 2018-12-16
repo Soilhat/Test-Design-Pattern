@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.insightr.gildedrose.controller.InventoryController">
+<AnchorPane prefHeight="679.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.insightr.gildedrose.controller.InventoryController">
     <Button layoutX="412.0" layoutY="14.0" mnemonicParsing="false" onAction="#UpdateButton" text="Update " />
-    <TableView id="table" fx:id="table" prefHeight="375.0" prefWidth="394.0">
+    <TableView id="table" fx:id="table" prefHeight="340.0" prefWidth="368.0">
     </TableView>
-    <PieChart id="pie" fx:id="pie" labelLineLength="50.0" labelsVisible="false" layoutX="393.0" layoutY="55.0" prefHeight="320.0" prefWidth="280.0" />
+    <PieChart id="pie" fx:id="pie" labelLineLength="50.0" labelsVisible="false" layoutX="442.0" layoutY="54.0" prefHeight="286.0" prefWidth="260.0" />
     <Button id="list_items" layoutX="491.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadFileButton" text="List_Items" />
+   <BarChart id="barChartSellIn" fx:id="barChartSellIn" layoutX="27.0" layoutY="365.0" prefHeight="286.0" prefWidth="341.0">
+     <xAxis>
+       <CategoryAxis fx:id="category" side="BOTTOM" />
+     </xAxis>
+     <yAxis>
+       <NumberAxis fx:id="number" side="LEFT" />
+     </yAxis>
+   </BarChart>
 </AnchorPane>
