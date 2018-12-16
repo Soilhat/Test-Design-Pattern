@@ -8,8 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+import java.util.*;
 
 
 import org.json.simple.JSONArray;
@@ -123,6 +122,23 @@ public class Inventory implements Initializable {
         return count;
     }
 
+    public Map<String, Integer> countSellIn(){
+        Map<String, Integer> result = new HashMap<String, Integer>();
+        for(Item i : items)
+        {
+            if(result.containsKey(String.valueOf(i.getSellIn())))
+            {
+                result.put(String.valueOf(i.getSellIn()), result.get(String.valueOf(i.getSellIn()))+1);
+            }
+            else
+            {
+                result.put(String.valueOf(i.getSellIn()), 1);
+            }
+        }
+        return result;
+
+    }
+
     public ObservableList<Item> ReaderFileJson(String fileName) {
         JSONParser jsonParser = new JSONParser();
         ObservableList<Item> itemStorage = FXCollections.observableArrayList();
@@ -176,5 +192,10 @@ public class Inventory implements Initializable {
                 System.out.println("Le type de l'item : "+ name + " est introuvable: l'item n'a pa été ajouté!");
         }
         return item;
+    }
+    public static void main(String[] args) {
+        Inventory inv = new Inventory("gildedRosebis.json");
+        //System.out.println(String.valueOf(inv.getItems().get(0).getSellIn()));
+        System.out.println(inv.countSellIn());
     }
 }
