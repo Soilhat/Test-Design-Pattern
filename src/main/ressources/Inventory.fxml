@@ -23,6 +23,14 @@
        <NumberAxis label="Number Items" side="LEFT" />
      </yAxis>
    </BarChart>
+    <BarChart fx:id="barChartSellIn" layoutX="431.0" layoutY="412.0" prefHeight="240.0" prefWidth="380.0" title="Number of Items by sellIn">
+        <xAxis>
+            <CategoryAxis label="SellIn" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Number of Items" side="LEFT" />
+        </yAxis>
+    </BarChart>
    <Button layoutX="632.0" layoutY="76.0" mnemonicParsing="false" onAction="#sellButtonCliked" text="Sell" />
    <MenuButton fx:id="listItem" layoutX="730.0" layoutY="76.0" mnemonicParsing="false" text="Load File">
      <items>

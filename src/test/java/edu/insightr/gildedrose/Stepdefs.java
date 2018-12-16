@@ -39,6 +39,9 @@ public class Stepdefs {
         assertTrue(inventory.getSoldItems().contains(item));
     }
 
+    @Then("^the number of item with SellIn date 10 is (\\d+)$")
+    public void CountSellIn(int number){assertThat(inventory.countSellIn().get("10"), is(number));}
+
     @Then("^The number of items correspond to the PieChart$")
     public void CountPiechart(){
         assertThat(inventory.countItem()[0], is(2));
