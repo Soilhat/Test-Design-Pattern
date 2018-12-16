@@ -23,6 +23,14 @@
        <NumberAxis label="Number Items" side="LEFT" />
      </yAxis>
    </BarChart>
+    <BarChart id="barChartSellIn" fx:id="barChartSellIn" layoutX="27.0" layoutY="365.0" prefHeight="286.0" prefWidth="341.0">
+        <xAxis>
+            <CategoryAxis fx:id="category" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis fx:id="number" side="LEFT" />
+        </yAxis>
+    </BarChart>
    <MenuButton fx:id="listItem" layoutX="730.0" layoutY="76.0" mnemonicParsing="false" text="Load File">
      <items>
        <MenuItem mnemonicParsing="false" text="gildedRose.json" onAction="#loadFileButton"/>

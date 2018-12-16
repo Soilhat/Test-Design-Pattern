@@ -39,14 +39,7 @@ public class Main extends Application {
 
     public static void main(String[] args) throws ParseException {
         launch(args);
-        /*Inventory inv = new Inventory("gildedRose.json");
-        Map<String, Integer> dico = inv.itemCountPerDate();
-        Set<Map.Entry<String, Integer>> setHm = dico.entrySet();
-        Iterator<Map.Entry<String, Integer>> it = setHm.iterator();
-        while(it.hasNext()){
-            Map.Entry<String, Integer> e = it.next();
-            System.out.println(e.getKey() + " : " + e.getValue());
-        }*/
+
     }
 }
 

@@ -26,6 +26,13 @@ public class InventoryController implements Initializable {
     BarChart BarchartItems;
     @FXML
     MenuButton listItem;
+    @FXML
+    BarChart barChartSellIn;
+    @FXML
+    CategoryAxis category;
+    @FXML
+    NumberAxis number;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -49,6 +56,7 @@ public class InventoryController implements Initializable {
         table.getColumns().setAll(typeCol, nameCol, sellInCol, qualityCol, creationCol);
         piechartFunction();
         barchartFunction();
+        barchartSellIn();
     }
 
     private void piechartFunction(){
@@ -57,7 +65,8 @@ public class InventoryController implements Initializable {
         PieChart.Data s2 = new PieChart.Data("Backstage Passes", inv.countItem()[2]);
         PieChart.Data s3 = new PieChart.Data("Conjured Mana Cake", inv.countItem()[3]);
         PieChart.Data s4 =  new PieChart.Data("Dexterity Vest", inv.countItem()[4]);
-        pie.setData(FXCollections.observableArrayList(s0, s1, s2, s3, s4));
+        PieChart.Data s5 =  new PieChart.Data("Elixir of the Mongose", inv.countItem()[5]);
+        pie.setData(FXCollections.observableArrayList(s0, s1, s2, s3, s4, s5));
         pie.setTitle("Inventory");
     }
 
@@ -75,6 +84,22 @@ public class InventoryController implements Initializable {
         set1.setData(data);
         BarchartItems.setData(FXCollections.observableArrayList(set1));
     }
+
+    @SuppressWarnings({"unchecked"})
+    private void barchartSellIn(){
+        XYChart.Series set1 = new XYChart.Series<>();
+        Map<String, Integer> dico = inv.countSellIn();
+        Set<Map.Entry<String, Integer>> setHm = dico.entrySet();
+        Iterator<Map.Entry<String, Integer>> it = setHm.iterator();
+        ObservableList<XYChart.Data> data = FXCollections.observableArrayList();
+        while(it.hasNext()){
+            Map.Entry<String, Integer> e = it.next();
+            data.add(new XYChart.Data(e.getKey(), e.getValue()));
+        }
+        set1.setData(data);
+        barChartSellIn.setData(FXCollections.observableArrayList(set1));
+    }
+
 
     public void UpdateButton(){
         inv.updateQuality();
