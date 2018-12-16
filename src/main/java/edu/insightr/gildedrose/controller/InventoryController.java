@@ -53,7 +53,6 @@ public class InventoryController implements Initializable {
         table.getColumns().setAll(typeCol, nameCol, sellInCol, qualityCol, creationCol);
         piechartFunction();
         barchartFunction();
-        deleteButtonCliked();
     }
 
     public void piechartFunction(){
@@ -94,10 +93,14 @@ public class InventoryController implements Initializable {
     }
 
     public void deleteButtonCliked(){
-        ObservableList<Item> itemSelected,allItems;
+        /*ObservableList<Item> itemSelected,allItems;
         allItems= table.getItems();
+
         itemSelected=table.getSelectionModel().getSelectedItems();
-        itemSelected.forEach(allItems::remove);
+        itemSelected.forEach(allItems::remove);*/
+        Item toSell = table.getSelectionModel().getSelectedItem();
+        if(toSell != null) inv.DeleteItem(toSell);
+        fetchItem();
     }
     public void AddItem(){
 

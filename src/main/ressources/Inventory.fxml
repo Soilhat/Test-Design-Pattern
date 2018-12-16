@@ -22,5 +22,5 @@
        <NumberAxis fx:id="y" label="Number Items" side="LEFT" />
      </yAxis>
    </BarChart>
-   <Button fx:id="ButtomRemove" layoutX="692.0" layoutY="76.0" mnemonicParsing="false" onAction="#deleteButtonCliked" text="Remove" />
+   <Button layoutX="692.0" layoutY="76.0" mnemonicParsing="false" onAction="#deleteButtonCliked" text="Remove" />
 </AnchorPane>

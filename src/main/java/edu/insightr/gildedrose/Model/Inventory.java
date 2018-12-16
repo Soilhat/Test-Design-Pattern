@@ -29,6 +29,7 @@ public class Inventory implements Initializable {
     }
 
     private ObservableList<Item> items;
+    private List<Item> soldItems;
 
     public ObservableList<Item> getItems() {
         return items;
@@ -44,18 +45,13 @@ public class Inventory implements Initializable {
 
     public Inventory() {
         super();
-        items = FXCollections.observableArrayList(
-                /*new Dexterity_Vest(),
-                new Aged_Brie(),
-                new Elixir_of_the_Mongoose(),
-                new Sulfuras(),
-                new Backstage_Passes(),
-                new Conjured_Mana_Cake()*/)
-        ;
+        items = FXCollections.observableArrayList();
+        soldItems = new ArrayList<>();
     }
 
     public Inventory(String fileName) {
         items = ReaderFileJson(fileName);
+        soldItems = new ArrayList<>();
     }
 
 
@@ -197,6 +193,10 @@ public class Inventory implements Initializable {
 
     }
 
-
+    public void DeleteItem(Item toDelete){
+        System.out.println(toDelete);
+        soldItems.add(toDelete);
+        items.remove(toDelete);
+    }
 }
 
