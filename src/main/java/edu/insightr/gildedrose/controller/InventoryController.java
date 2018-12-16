@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Side;
 import javafx.scene.chart.*;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableColumn;
@@ -25,13 +26,7 @@ public class InventoryController implements Initializable {
     @FXML
     BarChart BarchartItems;
     @FXML
-    MenuButton listItem;
-    @FXML
     BarChart barChartSellIn;
-    @FXML
-    CategoryAxis category;
-    @FXML
-    NumberAxis number;
 
 
     @Override
@@ -60,13 +55,17 @@ public class InventoryController implements Initializable {
     }
 
     private void piechartFunction(){
-        PieChart.Data s0 = new PieChart.Data("Aged Brie", inv.countItem()[0]);
-        PieChart.Data s1 =  new PieChart.Data("Sulfuras", inv.countItem()[1]);
-        PieChart.Data s2 = new PieChart.Data("Backstage Passes", inv.countItem()[2]);
-        PieChart.Data s3 = new PieChart.Data("Conjured Mana Cake", inv.countItem()[3]);
-        PieChart.Data s4 =  new PieChart.Data("Dexterity Vest", inv.countItem()[4]);
-        PieChart.Data s5 =  new PieChart.Data("Elixir of the Mongose", inv.countItem()[5]);
-        pie.setData(FXCollections.observableArrayList(s0, s1, s2, s3, s4, s5));
+        ObservableList<PieChart.Data> pieChartData =
+                FXCollections.observableArrayList(
+                        new PieChart.Data("Aged Brie", inv.countItem()[0]),
+                        new PieChart.Data("Sulfuras", inv.countItem()[1]),
+                        new PieChart.Data("Pass", inv.countItem()[2]),
+                        new PieChart.Data("Conjured", inv.countItem()[3]),
+                        new PieChart.Data("Vest", inv.countItem()[4]),
+                        new PieChart.Data("Elixir", inv.countItem()[5]));
+        pie.setData(pieChartData);
+        pie.setLabelLineLength(1);
+        pie.setLegendSide(Side.RIGHT);
         pie.setTitle("Inventory");
     }
 

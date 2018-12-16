@@ -21,11 +21,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/Inventory.fxml"));
-            Scene scene = new Scene(root,862,604);
+            Scene scene = new Scene(root,870,610);
 
-            /*chart.setTitle("Imported Fruits");
-            root = new Group(chart);
-            Scene scene2 = new Scene(root, 600, 400);*/
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch(Exception e) {

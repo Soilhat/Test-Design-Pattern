@@ -11,30 +11,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="604.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.insightr.gildedrose.controller.InventoryController">
-    <Button layoutX="530.0" layoutY="76.0" mnemonicParsing="false" onAction="#UpdateButton" text="Update " />
-    <TableView id="table" fx:id="table" layoutX="14.0" layoutY="76.0" prefHeight="335.0" prefWidth="481.0">
-    </TableView>
-    <PieChart id="pie" fx:id="pie" labelLineLength="50.0" labelsVisible="false" layoutX="530.0" layoutY="102.0" prefHeight="320.0" prefWidth="280.0" />
-   <BarChart fx:id="BarchartItems" layoutX="14.0" layoutY="412.0" prefHeight="198.0" prefWidth="306.0" title="Number of Items by creation date">
-     <xAxis>
-       <CategoryAxis label="Creation Date " side="BOTTOM" />
-     </xAxis>
-     <yAxis>
-       <NumberAxis label="Number Items" side="LEFT" />
-     </yAxis>
-   </BarChart>
-    <BarChart id="barChartSellIn" fx:id="barChartSellIn" layoutX="27.0" layoutY="365.0" prefHeight="286.0" prefWidth="341.0">
+    <Button layoutX="519.0" layoutY="29.0" mnemonicParsing="false" onAction="#UpdateButton" text="Update " />
+    <TableView id="table" fx:id="table" layoutX="14.0" layoutY="76.0" prefHeight="335.0" prefWidth="481.0" />
+    <PieChart id="pie" fx:id="pie" labelLineLength="50.0" layoutX="530.0" layoutY="102.0" prefHeight="320.0" prefWidth="291.0" />
+    <BarChart fx:id="BarchartItems" layoutX="14.0" layoutY="412.0" prefHeight="240.0" prefWidth="380.0" title="Number of Items by creation date">
         <xAxis>
-            <CategoryAxis fx:id="category" side="BOTTOM" />
+            <CategoryAxis label="Creation Date " side="BOTTOM" />
         </xAxis>
         <yAxis>
-            <NumberAxis fx:id="number" side="LEFT" />
+            <NumberAxis label="Number Items" side="LEFT" />
         </yAxis>
     </BarChart>
-   <MenuButton fx:id="listItem" layoutX="730.0" layoutY="76.0" mnemonicParsing="false" text="Load File">
+    <BarChart fx:id="barChartSellIn" layoutX="431.0" layoutY="412.0" prefHeight="240.0" prefWidth="380.0" title="Number of Items by sellIn">
+        <xAxis>
+            <CategoryAxis label="SellIn" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Number of Items" side="LEFT" />
+        </yAxis>
+    </BarChart>
+   <MenuButton  layoutX="728.0" layoutY="29.0" mnemonicParsing="false" text="Load File">
      <items>
-       <MenuItem mnemonicParsing="false" text="gildedRose.json" onAction="#loadFileButton"/>
-       <MenuItem mnemonicParsing="false" text="gildedRosebis.json" onAction="#loadFileButtonbis"/>
+       <MenuItem mnemonicParsing="false" onAction="#loadFileButton" text="gildedRose.json" />
+       <MenuItem mnemonicParsing="false" onAction="#loadFileButtonbis" text="gildedRosebis.json" />
      </items>
    </MenuButton>
 </AnchorPane>
