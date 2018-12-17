@@ -25,6 +25,7 @@ public class Inventory implements Initializable {
 
     private ObservableList<Item> items;
     private List<Item> soldItems;
+    private List<Item> boughtItems;
 
     public ObservableList<Item> getItems() {
         return items;
@@ -41,16 +42,19 @@ public class Inventory implements Initializable {
     public Inventory(ObservableList<Item> items) {
         this.items = items;
         soldItems = new ArrayList<>();
+        boughtItems = new ArrayList<>();
     }
 
     public Inventory() {
         items = FXCollections.observableArrayList();
         soldItems = new ArrayList<>();
+        boughtItems = new ArrayList<>();
     }
 
     public Inventory(String fileName) {
         items = ReaderFileJson(fileName);
         soldItems = new ArrayList<>();
+        boughtItems = new ArrayList<>();
     }
 
     public void ChargeItems(String fileName){
@@ -123,7 +127,7 @@ public class Inventory implements Initializable {
     }
 
     public Map<String, Integer> countSellIn(){
-        Map<String, Integer> result = new HashMap<String, Integer>();
+        Map<String, Integer> result = new HashMap<>();
         for(Item i : items)
         {
             if(result.containsKey(String.valueOf(i.getSellIn())))
@@ -212,6 +216,14 @@ public class Inventory implements Initializable {
     public void SellItem(Item toDelete){
         soldItems.add(toDelete);
         items.remove(toDelete);
+    }
+
+    public List<Item> getBoughtItems() {
+        return boughtItems;
+    }
+
+    public void setBoughtItems(List<Item> boughtItems) {
+        this.boughtItems = boughtItems;
     }
 }
 

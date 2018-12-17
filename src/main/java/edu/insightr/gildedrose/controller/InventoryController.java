@@ -5,15 +5,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Side;
 import javafx.scene.chart.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.*;
 
 public class InventoryController implements Initializable {
@@ -28,7 +25,7 @@ public class InventoryController implements Initializable {
     @FXML
     BarChart barChartSellIn;
     @FXML
-    TextField newType;
+    ChoiceBox<String> newType;
     @FXML
     TextField newName;
     @FXML
@@ -36,13 +33,20 @@ public class InventoryController implements Initializable {
     @FXML
     TextField newQuality;
     @FXML
-    Button add;
+    CategoryAxis xAxisC;
+    @FXML
+    CategoryAxis xAxisS;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         inv = new Inventory();
         fetchItem();
+        ObservableList<String> types = FXCollections.observableArrayList(
+                "Aged_Brie", "Backstage_Passes", "Conjured_Mana_Cake", "Dexterity_Vest", "Elixir_of_the_Mongoose", "Sulfuras"
+        );
+        newType.setItems(types);
+
     }
 
     private void fetchItem(){
@@ -59,8 +63,6 @@ public class InventoryController implements Initializable {
         table.setItems(inv.getItems());
         //noinspection unchecked
         table.getColumns().setAll(typeCol, nameCol, sellInCol, qualityCol, creationCol);
-        barchartFunction();
-        barchartSellIn();
     }
 
     private void piechartFunction(){
@@ -73,7 +75,6 @@ public class InventoryController implements Initializable {
                         new PieChart.Data("Vest", inv.countItem()[4]),
                         new PieChart.Data("Elixir", inv.countItem()[5]));
         pie.setData(pieChartData);
-        pie.setLabelLineLength(1);
         pie.setTitle("Inventory");
     }
 
@@ -84,11 +85,14 @@ public class InventoryController implements Initializable {
         Set<Map.Entry<String, Integer>> setHm = dico.entrySet();
         Iterator<Map.Entry<String, Integer>> it = setHm.iterator();
         ObservableList<XYChart.Data> data = FXCollections.observableArrayList();
+        ObservableList<String> xAxis = FXCollections.observableArrayList();
         while(it.hasNext()){
             Map.Entry<String, Integer> e = it.next();
             data.add(new XYChart.Data(e.getKey(), e.getValue()));
+            xAxis.add(e.getKey());
         }
         set1.setData(data);
+        xAxisC.setCategories(xAxis);
         BarChartItems.setData(FXCollections.observableArrayList(set1));
     }
 
@@ -99,11 +103,14 @@ public class InventoryController implements Initializable {
         Set<Map.Entry<String, Integer>> setHm = dico.entrySet();
         Iterator<Map.Entry<String, Integer>> it = setHm.iterator();
         ObservableList<XYChart.Data> data = FXCollections.observableArrayList();
+        ObservableList<String> xAxis = FXCollections.observableArrayList();
         while(it.hasNext()){
             Map.Entry<String, Integer> e = it.next();
             data.add(new XYChart.Data(e.getKey(), e.getValue()));
+            xAxis.add(e.getKey());
         }
         set1.setData(data);
+        xAxisS.setCategories(xAxis);
         barChartSellIn.setData(FXCollections.observableArrayList(set1));
     }
 
@@ -111,57 +118,62 @@ public class InventoryController implements Initializable {
     public void UpdateButton(){
         inv.updateQuality();
         fetchItem();
+        barchartSellIn();
     }
 
     public void loadFileButton(){
         inv.ChargeItems("gildedRose.json");
-        fetchItem();
+        barchartFunction();
+        barchartSellIn();
         piechartFunction();
     }
     public void loadFileButtonbis(){
         inv.ChargeItems("gildedRosebis.json");
-        fetchItem();
+        barchartFunction();
+        barchartSellIn();
         piechartFunction();
     }
 
     public void sellButtonCliked(){
         Item toSell = table.getSelectionModel().getSelectedItem();
         if(toSell != null) inv.SellItem(toSell);
-        fetchItem();
+        barchartFunction();
+        barchartSellIn();
         piechartFunction();
     }
     public void addButton(){
         Item item = null;
 
-        switch(newType.getText()) {
+        switch(newType.getValue()) {
             case "Aged_Brie":
-                item = new Aged_Brie(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                item = new Aged_Brie(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()), LocalDate.now().toString());
                 break;
             case "Backstage_Passes":
-                item = new Backstage_Passes(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                item = new Backstage_Passes(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()), LocalDate.now().toString());
                 break;
             case "Conjured_Mana_Cake":
-                item = new Conjured_Mana_Cake(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                item = new Conjured_Mana_Cake(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()), LocalDate.now().toString());
                 break;
             case "Dexterity_Vest":
-                item = new Dexterity_Vest(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                item = new Dexterity_Vest(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()), LocalDate.now().toString());
                 break;
             case "Elixir_of_the_Mongoose":
-                item = new Elixir_of_the_Mongoose(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                item = new Elixir_of_the_Mongoose(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()), LocalDate.now().toString());
                 break;
             case "Sulfuras":
-                item = new Sulfuras(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                item = new Sulfuras(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()), LocalDate.now().toString());
                 break;
 
         }
+        if(!inv.getItems().contains(item)){
             inv.getItems().add(item);
-        newType.clear();
+            inv.getBoughtItems().add(item);
+        }
         newName.clear();
         newSellIn.clear();
         newQuality.clear();
         piechartFunction();
         barchartSellIn();
+        barchartFunction();
     }
-}
-
 }

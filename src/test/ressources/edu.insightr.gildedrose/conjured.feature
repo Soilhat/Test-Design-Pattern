@@ -1,7 +1,14 @@
 Feature: Tests Inventory
 
+  #Buy an item
+  Scenario: Buying of an item
+    Given I have a new inventory
+    And I buy an item
+    Then the item is in my inventory
+    And the item is in the bought list
+
   #Sell an item
-  Scenario: Selling of a item
+  Scenario: Selling of an item
     Given I have a new inventory
     And I sell an item
     Then my item is no longer in my inventory

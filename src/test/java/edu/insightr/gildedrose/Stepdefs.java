@@ -8,6 +8,8 @@ import edu.insightr.gildedrose.Model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.time.LocalDate;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
@@ -22,6 +24,19 @@ public class Stepdefs {
     public void Fetching(){
         inventory = new Inventory("gildedRosebis.json");
     }
+
+    @And("^I buy an item$")
+    public void buying(){
+        item = new Aged_Brie("agie", 20, 30, LocalDate.now().toString());
+        inventory.getItems().add(item);
+        inventory.getBoughtItems().add(item);
+    }
+
+    @Then("^the item is in my inventory$")
+    public void Added(){assertTrue(inventory.getItems().contains(item));}
+
+    @And("^the item is in the bought list$")
+    public void BoughtList(){assertTrue(inventory.getBoughtItems().contains(item));}
 
     @And("^I sell an item$")
     public void selling(){
