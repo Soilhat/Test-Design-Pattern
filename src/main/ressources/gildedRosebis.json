@@ -4,7 +4,8 @@
             "type":"Sulfuras",
             "name": "sulfuras1",
             "quality": "56",
-            "sellIn": "10"
+            "sellIn": "10",
+            "creation_date":"2018-11-12"
         }
     },
     {
@@ -12,7 +13,8 @@
             "type":"Aged_Brie",
             "name": "agedBrie",
             "quality": "26",
-            "sellIn": "3"
+            "sellIn": "3",
+          "creation_date":"2018-11-12"
         }
     },
     {
@@ -20,7 +22,8 @@
             "type":"Backstage_Passes",
             "name": "Backstage Passes",
             "quality": "34",
-            "sellIn": "10"
+            "sellIn": "10",
+          "creation_date":"2018-11-12"
         }
     },
     {
@@ -28,7 +31,8 @@
             "type":"Conjured_Mana_Cake",
             "name": "Conjured Mana Cake1",
             "quality": "24",
-            "sellIn": "7"
+            "sellIn": "7",
+          "creation_date":"2018-12-12"
         }
     },
     {
@@ -36,7 +40,8 @@
             "type":"Conjured_Mana_Cake",
             "name": "Conjured Mana Cake3",
             "quality": "24",
-            "sellIn": "7"
+            "sellIn": "7",
+          "creation_date":"2018-12-12"
         }
     },
     {
@@ -44,7 +49,8 @@
             "type":"Elixir_of_the_Mongoose",
             "name": "Elixir of the Mongoose",
             "quality": "24",
-            "sellIn": "7"
+            "sellIn": "7",
+          "creation_date":"2018-10-12"
         }
     },
   {
@@ -52,7 +58,8 @@
       "type":"Sulfuras",
       "name": "sulfuras2",
       "quality": "44",
-      "sellIn": "17"
+      "sellIn": "17",
+      "creation_date":"2018-9-12"
     }
   },
   {
@@ -60,7 +67,8 @@
       "type":"Aged_Brie",
       "name": "agedBrie2",
       "quality": "6",
-      "sellIn": "25"
+      "sellIn": "25",
+      "creation_date":"2018-12-12"
     }
   },
   {
@@ -68,7 +76,8 @@
       "type":"Backstage_Passes",
       "name": "Backstage Passes2",
       "quality": "14",
-      "sellIn": "6"
+      "sellIn": "6",
+      "creation_date":"2018-12-12"
     }
   },
   {
@@ -76,10 +85,8 @@
       "type":"Conjured_Mana_Cake",
       "name": "Conjured Mana Cake2",
       "quality": "19",
-      "sellIn": "16"
+      "sellIn": "16",
+      "creation_date":"2018-12-12"
     }
   }
-
-
-
 ]

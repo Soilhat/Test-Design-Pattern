@@ -4,15 +4,25 @@
       "type":"Sulfuras",
       "name": "sulfuras",
       "quality": "56",
-      "sellIn": "10"
+      "sellIn": "10",
+      "creation_date":"1995-12-16"
     }
-  },
+  },{
+  "product": {
+    "type":"Sulfuras",
+    "name": "sulf",
+    "quality": "56",
+    "sellIn": "10",
+    "creation_date":"1995-12-16"
+  }
+},
   {
     "product": {
       "type":"Aged_Brie",
       "name": "agedBrie",
       "quality": "26",
-      "sellIn": "3"
+      "sellIn": "3", 
+      "creation_date":"1997-08-16"
     }
   },
   {
@@ -20,23 +30,26 @@
       "type":"Backstage_Passes",
       "name": "Backstage Passes",
       "quality": "34",
-      "sellIn": "10"
+      "sellIn": "10",
+      "creation_date":"1993-10-14"
     }
   },
   {
     "product": {
       "type":"Aged_Brie",
-      "name": "Aged Brie",
+      "name": "Aged Brie1",
       "quality": "26",
-      "sellIn": "3"
+      "sellIn": "3",
+      "creation_date":"1998-11-25"
     }
   },
   {
     "product": {
-      "type":"Dextery_Vest",
-      "name": "Backstage Passes",
+      "type":"Dexterity_Vest",
+      "name": "Dexterity",
       "quality": "55",
-      "sellIn": "25"
+      "sellIn": "25",
+      "creation_date":"1982-02-03"
     }
   },
   {
@@ -44,56 +57,62 @@
       "type":"Conjured_Mana_Cake",
       "name": "Conjured Mana Cake",
       "quality": "24",
-      "sellIn": "7"
+      "sellIn": "7",
+      "creation_date":"2007-01-02"
     }
   },
   {
     "product": {
       "type":"Backstage_Passes",
-      "name": "Backstage Passes",
+      "name": "Backstage Passes2",
       "quality": "34",
-      "sellIn": "10"
+      "sellIn": "10",
+      "creation_date":"2014-02-22"
     }
   },
   {
     "product": {
       "type":"Backstage_Passes",
-      "name": "Backstage Passes",
+      "name": "Backstage Passes3",
       "quality": "34",
-      "sellIn": "10"
+      "sellIn": "10",
+      "creation_date":"1993-08-10"
     }
   },
   {
     "product": {
       "type":"Backstage_Passes",
-      "name": "Backstage Passes",
+      "name": "Backstage Passes4",
       "quality": "34",
-      "sellIn": "10"
+      "sellIn": "10",
+      "creation_date":"2007-04-18"
     }
   },
   {
     "product": {
       "type":"Conjured_Mana_Cake",
-      "name": "Conjured Mana Cake",
+      "name": "Conjured Mana Cake1",
       "quality": "24",
-      "sellIn": "7"
+      "sellIn": "7",
+      "creation_date":"1963-01-03"
     }
   },
   {
     "product": {
       "type":"Conjured_Mana_Cake",
-      "name": "Conjured Mana Cake",
+      "name": "Conjured Mana Cake2",
       "quality": "24",
-      "sellIn": "7"
+      "sellIn": "7",
+      "creation_date":"1967-06-11"
     }
   },
   {
     "product": {
       "type":"Sulfuras",
-      "name": "sulfuras",
+      "name": "sulfuras1",
       "quality": "56",
-      "sellIn": "10"
+      "sellIn": "10",
+      "creation_date":"2004-01-27"
     }
   }
-
 ]

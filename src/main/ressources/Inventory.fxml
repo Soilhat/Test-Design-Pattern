@@ -5,32 +5,48 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="679.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.insightr.gildedrose.controller.InventoryController">
-    <Button layoutX="412.0" layoutY="14.0" mnemonicParsing="false" onAction="#UpdateButton" text="Update " />
-    <TableView id="table" fx:id="table" prefHeight="323.0" prefWidth="397.0">
+<AnchorPane prefHeight="604.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.insightr.gildedrose.controller.InventoryController">
+    <Button layoutX="530.0" layoutY="29.0" mnemonicParsing="false" onAction="#UpdateButton" text="Update " />
+    <TableView id="table" fx:id="table" layoutX="19.0" layoutY="29.0" prefHeight="335.0" prefWidth="481.0">
     </TableView>
-    <PieChart id="pie" fx:id="pie" labelLineLength="50.0" labelsVisible="false" layoutX="442.0" layoutY="54.0" prefHeight="286.0" prefWidth="260.0" />
-    <Button id="list_items" layoutX="491.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadFileButton" text="List_Items" />
-   <BarChart id="barChartSellIn" fx:id="barChartSellIn" layoutX="14.0" layoutY="365.0" prefHeight="286.0" prefWidth="341.0">
+    <PieChart id="pie" fx:id="pie" labelLineLength="50.0" labelsVisible="false" layoutX="530.0" layoutY="63.0" prefHeight="320.0" prefWidth="280.0" />
+   <BarChart fx:id="BarChartItems" layoutX="53.0" layoutY="423.0" prefHeight="198.0" prefWidth="306.0" title="Number of Items by creation date">
      <xAxis>
-       <CategoryAxis fx:id="category" side="BOTTOM" />
+       <CategoryAxis fx:id="xAxisC" label="Creation Date " side="BOTTOM" />
      </xAxis>
      <yAxis>
-       <NumberAxis fx:id="number" side="LEFT" />
+       <NumberAxis label="Number Items" side="LEFT" />
      </yAxis>
    </BarChart>
-   <TextField fx:id="newType" layoutX="36.0" layoutY="340.0" prefHeight="25.0" prefWidth="50.0" />
-   <Text layoutX="3.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" />
-   <Text layoutX="93.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-   <TextField fx:id="newName" layoutX="133.0" layoutY="340.0" prefHeight="25.0" prefWidth="59.0" />
-   <Text layoutX="199.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SellIn" />
-   <TextField fx:id="newSellIn" layoutX="234.0" layoutY="340.0" prefHeight="25.0" prefWidth="25.0" />
-   <Text layoutX="268.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quality" />
-   <TextField fx:id="newQuality" layoutX="313.0" layoutY="339.0" prefHeight="25.0" prefWidth="25.0" />
-   <Button fx:id="add" layoutX="359.0" layoutY="339.0" mnemonicParsing="false" onAction="#addButton" text="Add" />
+    <BarChart fx:id="barChartSellIn" layoutX="431.0" layoutY="412.0" prefHeight="240.0" prefWidth="380.0" title="Number of Items by sellIn">
+        <xAxis>
+            <CategoryAxis fx:id="xAxisS" label="SellIn" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Number of Items" side="LEFT" />
+        </yAxis>
+    </BarChart>
+   <Button layoutX="640.0" layoutY="29.0" mnemonicParsing="false" onAction="#sellButtonCliked" text="Sell" />
+   <MenuButton layoutX="730.0" layoutY="29.0" mnemonicParsing="false" text="Load File">
+     <items>
+       <MenuItem mnemonicParsing="false" onAction="#loadFileButton" text="gildedRose.json" />
+       <MenuItem mnemonicParsing="false" onAction="#loadFileButtonbis" text="gildedRosebis.json" />
+     </items>
+   </MenuButton>
+   <Text layoutX="180.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+   <TextField fx:id="newName" layoutX="222.0" layoutY="384.0" prefHeight="25.0" prefWidth="59.0" />
+   <Text layoutX="289.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SellIn" />
+   <Text layoutX="393.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quality" />
+   <Button layoutX="501.0" layoutY="383.0" mnemonicParsing="false" onAction="#addButton" text="Add" />
+   <ChoiceBox fx:id="newType" layoutX="19.0" layoutY="384.0" prefWidth="150.0" />
+   <TextField fx:id="newSellIn" layoutX="326.0" layoutY="383.0" prefHeight="26.0" prefWidth="58.0" />
+   <TextField fx:id="newQuality" layoutX="431.0" layoutY="383.0" prefHeight="26.0" prefWidth="58.0" />
 </AnchorPane>

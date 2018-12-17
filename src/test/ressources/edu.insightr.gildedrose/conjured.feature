@@ -1,10 +1,33 @@
 Feature: Tests Inventory
 
-  #PieChart Analyse
-  Scenario: Piechart
-    Given I fetch my items
-    Then The number of items corespond to the Piechart
+  #Buy an item
+  Scenario: Buying of an item
+    Given I have a new inventory
+    And I buy an item
+    Then the item is in my inventory
+    And the item is in the bought list
 
+  #Sell an item
+  Scenario: Selling of an item
+    Given I have a new inventory
+    And I sell an item
+    Then my item is no longer in my inventory
+    And the item is in the sold list
+
+  #BarChert SellIn
+  Scenario: BarChart Number of items by SellIn
+    Given I fetch my items
+    Then the number of item with SellIn date 10 is 2
+
+  #BarChart per creation Date
+  Scenario: BarChart Creation Date
+    Given I fetch my items
+    Then The number of item created the 2018-12-12 is 5
+
+  #PieChart Analyse
+  Scenario: PieChart
+    Given I fetch my items
+    Then The number of items correspond to the PieChart
 
   #JSON File Reading into list of Item in the Inventory
   Scenario: Json File

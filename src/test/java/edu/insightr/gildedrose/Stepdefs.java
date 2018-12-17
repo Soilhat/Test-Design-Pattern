@@ -1,5 +1,6 @@
 package edu.insightr.gildedrose;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -7,23 +8,62 @@ import edu.insightr.gildedrose.Model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.time.LocalDate;
+
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class Stepdefs {
     private Inventory inventory;
     private ObservableList<Item> items;
+    private Item item;
 
-    @Given("I fetch my items")
+    @Given("^I fetch my items$")
     public void Fetching(){
         inventory = new Inventory("gildedRosebis.json");
     }
 
-    @Then("The number of items corespond to the Piechart")
+    @And("^I buy an item$")
+    public void buying(){
+        item = new Aged_Brie("agie", 20, 30, LocalDate.now().toString());
+        inventory.getItems().add(item);
+        inventory.getBoughtItems().add(item);
+    }
+
+    @Then("^the item is in my inventory$")
+    public void Added(){assertTrue(inventory.getItems().contains(item));}
+
+    @And("^the item is in the bought list$")
+    public void BoughtList(){assertTrue(inventory.getBoughtItems().contains(item));}
+
+    @And("^I sell an item$")
+    public void selling(){
+        item = items.get(0);
+        inventory.SellItem(item);
+    }
+
+    @Then("^my item is no longer in my inventory$")
+    public void Deleted(){
+        assertFalse(inventory.getItems().contains(item));
+    }
+
+    @And("^the item is in the sold list$")
+    public void SoldList(){
+        assertTrue(inventory.getSoldItems().contains(item));
+    }
+
+    @Then("^the number of item with SellIn date 10 is (\\d+)$")
+    public void CountSellIn(int number){assertThat(inventory.countSellIn().get("10"), is(number));}
+
+    @Then("^The number of items correspond to the PieChart$")
     public void CountPiechart(){
         assertThat(inventory.countItem()[0], is(2));
     }
+
+    @Then("^The number of item created the 2018-12-12 is (\\d+)$")
+    public void  CountCreation(int number) { assertThat(inventory.itemCountPerDate().get("2018-12-12"), is(number));}
 
     @Given("^I have a new inventory$")
     public void iHaveANewInventory(){
@@ -48,9 +88,7 @@ public class Stepdefs {
 
     @Then("my inventory is filled")
     public void TestInventoryFilled(){
-        for(Item i : inventory.getItems()){
-            System.out.println(i);
-        }
+        assertThat(inventory.getItems().get(0), is(new Sulfuras("sulfuras1", 10, 56, "2018-12-12")));
     }
 
     @Then("^the quality of the conjured item is (\\d+)$")
