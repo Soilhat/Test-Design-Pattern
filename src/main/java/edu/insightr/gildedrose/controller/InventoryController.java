@@ -95,6 +95,7 @@ public class InventoryController implements Initializable {
     public void UpdateButton(){
         inv.updateQuality();
         fetchItem();
+
     }
 
     public void loadFileButton() {
@@ -104,28 +105,41 @@ public class InventoryController implements Initializable {
     public void addButton(){
         Item item = null;
 
-        switch(newType.getText()) {
-            case "Aged_Brie":
-                item = new Aged_Brie(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
-                break;
-            case "Backstage_Passes":
-                item = new Backstage_Passes(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
-                break;
-            case "Conjured_Mana_Cake":
-                item = new Conjured_Mana_Cake(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
-                break;
-            case "Dexterity_Vest":
-                item = new Dexterity_Vest(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
-                break;
-            case "Elixir_of_the_Mongoose":
-                item = new Elixir_of_the_Mongoose(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
-                break;
-            case "Sulfuras":
-                item = new Sulfuras(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
-                break;
+        if ((newQuality.getText())!= null && newSellIn.getText()!= null && newName.getText()!= null) {
 
+            try {
+
+
+                switch (newType.getText()) {
+                    case "Aged_Brie":
+                        item = new Aged_Brie(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                        break;
+                    case "Backstage_Passes":
+                        item = new Backstage_Passes(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                        break;
+                    case "Conjured_Mana_Cake":
+                        item = new Conjured_Mana_Cake(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                        break;
+                    case "Dexterity_Vest":
+                        item = new Dexterity_Vest(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                        break;
+                    case "Elixir_of_the_Mongoose":
+                        item = new Elixir_of_the_Mongoose(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                        break;
+                    case "Sulfuras":
+                        item = new Sulfuras(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                        break;
+
+                }
+                inv.getItems().add(item);
+            }
+            catch( NumberFormatException e){}
         }
-            inv.getItems().add(item);
+        else System.out.println("error");
+
+
+
+
         newType.clear();
         newName.clear();
         newSellIn.clear();
