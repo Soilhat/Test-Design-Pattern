@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="604.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.insightr.gildedrose.controller.InventoryController">
-    <Button layoutX="530.0" layoutY="29.0" mnemonicParsing="false" onAction="#UpdateButton" text="Update " />
+    <Button fx:id="UpdateButton" layoutX="530.0" layoutY="29.0" mnemonicParsing="false" onAction="#UpdateButton" text="Update " />
     <TableView id="table" fx:id="table" layoutX="19.0" layoutY="29.0" prefHeight="335.0" prefWidth="481.0">
     </TableView>
     <PieChart id="pie" fx:id="pie" labelLineLength="50.0" labelsVisible="false" layoutX="530.0" layoutY="63.0" prefHeight="320.0" prefWidth="280.0" />
@@ -34,7 +34,7 @@
             <NumberAxis label="Number of Items" side="LEFT" />
         </yAxis>
     </BarChart>
-   <Button layoutX="640.0" layoutY="29.0" mnemonicParsing="false" onAction="#sellButtonCliked" text="Sell" />
+   <Button fx:id="SellButton" layoutX="640.0" layoutY="29.0" mnemonicParsing="false" onAction="#sellButtonCliked" text="Sell" />
    <MenuButton layoutX="730.0" layoutY="29.0" mnemonicParsing="false" text="Load File">
      <items>
        <MenuItem mnemonicParsing="false" onAction="#loadFileButton" text="gildedRose.json" />

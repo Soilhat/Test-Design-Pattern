@@ -17,6 +17,10 @@ public class InventoryController implements Initializable {
 
     private Inventory inv;
     @FXML
+    Button UpdateButton;
+    @FXML
+    Button SellButton;
+    @FXML
     TableView<Item> table;
     @FXML
     PieChart pie;
@@ -46,7 +50,8 @@ public class InventoryController implements Initializable {
                 "Aged_Brie", "Backstage_Passes", "Conjured_Mana_Cake", "Dexterity_Vest", "Elixir_of_the_Mongoose", "Sulfuras"
         );
         newType.setItems(types);
-
+        UpdateButton.setDisable(true);
+        SellButton.setDisable(true);
     }
 
     private void fetchItem(){
@@ -126,12 +131,16 @@ public class InventoryController implements Initializable {
         barchartFunction();
         barchartSellIn();
         piechartFunction();
+        UpdateButton.setDisable(false);
+        SellButton.setDisable(false);
     }
     public void loadFileButtonbis(){
         inv.ChargeItems("gildedRosebis.json");
         barchartFunction();
         barchartSellIn();
         piechartFunction();
+        UpdateButton.setDisable(false);
+        SellButton.setDisable(false);
     }
 
     public void sellButtonCliked(){
@@ -140,6 +149,11 @@ public class InventoryController implements Initializable {
         barchartFunction();
         barchartSellIn();
         piechartFunction();
+        if(inv.getItems().size() == 0)
+        {
+            UpdateButton.setDisable(true);
+            SellButton.setDisable(true);
+        }
     }
     public void addButton(){
         Item item = null;
@@ -168,6 +182,8 @@ public class InventoryController implements Initializable {
         if(!inv.getItems().contains(item)){
             inv.getItems().add(item);
             inv.getBoughtItems().add(item);
+            UpdateButton.setDisable(false);
+            SellButton.setDisable(false);
         }
         newName.clear();
         newSellIn.clear();
