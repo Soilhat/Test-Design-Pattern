@@ -151,43 +151,49 @@ public class InventoryController implements Initializable {
 
                 switch (newType.getValue()) {
                     case "Aged_Brie":
-                        item = new Aged_Brie(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                        item = new Aged_Brie(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()), LocalDate.now().toString());
                         break;
                     case "Backstage_Passes":
-                        item = new Backstage_Passes(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                        item = new Backstage_Passes(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()),  LocalDate.now().toString());
                         break;
                     case "Conjured_Mana_Cake":
-                        item = new Conjured_Mana_Cake(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                        item = new Conjured_Mana_Cake(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()),  LocalDate.now().toString());
                         break;
                     case "Dexterity_Vest":
-                        item = new Dexterity_Vest(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                        item = new Dexterity_Vest(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()), LocalDate.now().toString());
                         break;
                     case "Elixir_of_the_Mongoose":
-                        item = new Elixir_of_the_Mongoose(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                        item = new Elixir_of_the_Mongoose(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()), LocalDate.now().toString());
                         break;
                     case "Sulfuras":
-                        item = new Sulfuras(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()));
+                        item = new Sulfuras(newName.getText(), Integer.parseInt(newSellIn.getText()), Integer.parseInt(newQuality.getText()), LocalDate.now().toString());
                         break;
 
                 }
                 if(!inv.getItems().contains(item)){
                   inv.getItems().add(item);
                   inv.getBoughtItems().add(item);
-        }
+                  newName.clear();
+                  newSellIn.clear();
+                  newQuality.clear();
+                  piechartFunction();
+                  barchartSellIn();
+                  barchartFunction();
+                }
             }
-            catch( NumberFormatException e){}
+            catch( NumberFormatException e){
+                Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                errorAlert.setHeaderText("Number Format Exception");
+                errorAlert.setContentText("You should enter a number for Sellin and Quality");
+                errorAlert.showAndWait();
+            }
         }
-        else System.out.println("error");
+        else {
 
-
-
-
-        newType.clear();
-        newName.clear();
-        newSellIn.clear();
-        newQuality.clear();
-        piechartFunction();
-        barchartSellIn();
-        barchartFunction();
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setHeaderText("Null Exception");
+            errorAlert.setContentText("You should fill all the input");
+            errorAlert.showAndWait();
+        }
     }
 }
